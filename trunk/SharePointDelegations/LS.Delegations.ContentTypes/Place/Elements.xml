@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ContentType ID="0x01006FA93EAAF2CA4638BCEBC9F2B026639C" Name="Place" Description="Place" Group="LS Content">
+    <FieldRefs>
+      <FieldRef ID="{12BD2AB2-FB9C-4640-9C71-4B73F07202E4}" Name="City"/>
+    </FieldRefs>
+  </ContentType>
+</Elements>

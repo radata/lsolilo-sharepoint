@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ContentType ID="0x010084534150162D41F2957E6D795FB00A5E" Name="MonthlyReport" Description="Monthly Report" Group="LS Content">
+    <FieldRefs>
+      <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Hidden="TRUE"/>
+      <FieldRef ID="{EEDEB061-2368-4981-BCE4-8CACB8BD865D}" Name="MonthIndicator"/>
+      <FieldRef ID="{8FB3D31E-CCDB-4B8D-A280-ED3E632983BD}" Name="MonthlyCost"/>
+    </FieldRefs>
+  </ContentType>
+</Elements>

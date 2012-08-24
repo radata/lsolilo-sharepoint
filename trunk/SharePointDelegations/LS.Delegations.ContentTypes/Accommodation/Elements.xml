@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ContentType ID="0x0100808EED08F40D47A6B55319295FFB72E1" Name="Accommodation" Description="Accommodation" Group="LS Content">
+    <FieldRefs>
+      <FieldRef ID="{B1669BDF-61BB-4587-B883-3F12796B38EE}" Name="Place" Required="TRUE"/>
+      <FieldRef ID="{34AFC031-7CD2-4329-A099-09A1FF7AFEBC}" Name="Location"/>
+      <FieldRef ID="{43991A03-864F-4861-A01F-CBCBA6DC5F51}" Name="Days"/>
+      <FieldRef ID="{11FCA4AC-9A24-4184-BD8A-F08485150AE0}" Name="Cost" Required="TRUE"/>
+      <FieldRef ID="{B8C52ACD-4D9D-4C53-98C0-6B14DB2D4959}" Name="Delegation" Required="TRUE"/>
+    </FieldRefs>
+  </ContentType>
+</Elements>

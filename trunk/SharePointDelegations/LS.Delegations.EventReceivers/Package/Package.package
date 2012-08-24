@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="00873fc1-3839-4ae9-a85e-c89188c9a61e" solutionId="00873fc1-3839-4ae9-a85e-c89188c9a61e" resetWebServer="false" name="LS.Delegations.EventReceivers" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="c5327cf1-8454-4892-a1b1-8c71b1ba3e77" />
+  </features>
+</package>

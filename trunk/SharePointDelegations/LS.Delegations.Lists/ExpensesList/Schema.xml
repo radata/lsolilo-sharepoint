@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="LS - Expenses" FolderCreation="FALSE" EnableContentTypes="TRUE" Direction="$Resources:Direction;" Url="Lists/SharePointDelegations-ExpensesList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      <ContentTypeRef ID="0x0100808EED08F40D47A6B55319295FFB72E1"/>
+      <ContentTypeRef ID="0x01000D9BA4EE8E3643C5B59C571BEE40F5B4"/>
+    </ContentTypes>
+    <Fields>
+      <Field ID="{11fca4ac-9a24-4184-bd8a-f08485150ae0}" Name="Cost" DisplayName="Cost" Type="Currency" Group="LS Columns" LCID="1045">
+      </Field>
+      <Field ID="{b1669bdf-61bb-4587-b883-3f12796b38ee}" Name="Place" DisplayName="Place" Type="Lookup" Group="LS Columns" List="Lists/Places">
+      </Field>
+      <Field ID="{b8c52acd-4d9d-4c53-98c0-6b14db2d4959}" Name="Delegation" DisplayName="Delegation" Type="Lookup" Group="LS Columns" List="Lists/Delegations" ShowField="Title" Required="TRUE">
+      </Field>
+      <Field ID="{34afc031-7cd2-4329-a099-09a1ff7afebc}" Name="Location" DisplayName="Location" Type="Choice" Group="LS Columns">
+        <CHOICES>
+          <CHOICE>Hotel</CHOICE>
+          <CHOICE>Apartment</CHOICE>
+          <CHOICE>Other</CHOICE>
+        </CHOICES>
+      </Field>
+      <Field ID="{43991a03-864f-4861-a01f-cbcba6dc5f51}" Name="Days" DisplayName="Days" Type="Number" Group="LS Columns">
+      </Field>
+      <Field ID="{DA9A54AD-5D8D-4C66-BB9A-3F8600066A21}" Name="From" DisplayName="From" Type="Lookup" Group="LS Columns" List="Lists/Places"></Field>
+      <Field ID="{72B920B7-AED0-4B1D-B95D-E3E1A4ADBF89}" Name="Destination" DisplayName="Destination" Type="Lookup" Group="LS Columns" List="Lists/Places"></Field>
+      <Field ID="{6d6e18b1-0e0a-4e5e-9b34-e94b94d295f1}" Name="Transport" DisplayName="Transport" Type="Choice" Group="LS Columns">
+        <CHOICES>
+          <CHOICE>Plane</CHOICE>
+          <CHOICE>Car</CHOICE>
+          <CHOICE>Taxi</CHOICE>
+          <CHOICE>Bus</CHOICE>
+          <CHOICE>Train</CHOICE>
+          <CHOICE>Ship</CHOICE>
+          <CHOICE>Other</CHOICE>
+        </CHOICES>
+      </Field>
+      <Field ID="{409f1dfb-1656-4b64-bf4f-a889f4264190}" Name="Distance" DisplayName="Distance (km)" Type="Number" Group="LS Columns">
+      </Field>
+      <Field ID="{7f4e2255-a846-4b76-911e-6fe2d3eb8dd8}" Name="TravelTime" DisplayName="Travel Time (h)" Type="Number" Group="LS Columns">
+      </Field>
+    </Fields>
+    <Views>
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitleNoMenu">
+          </FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="Modified" Ascending="FALSE">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="Attachments">
+          </FieldRef>
+          <FieldRef Name="LinkTitle">
+          </FieldRef>
+          <FieldRef ID="{b8c52acd-4d9d-4c53-98c0-6b14db2d4959}" Name="Delegation">
+          </FieldRef>
+          <FieldRef ID="{11fca4ac-9a24-4184-bd8a-f08485150ae0}" Name="Cost"></FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="ID">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

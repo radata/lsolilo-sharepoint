@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ContentType ID="0x0100735281EF6A774E1EBF6A0EFE8FA3BD6D" Name="Delegation" Description="Delegation" Group="LS Content">
+    <FieldRefs>
+      <FieldRef ID="{67D4B38A-EC78-41B7-84B6-3CE2D9E0644A}" Name="Reason" Required="TRUE"/>
+      <FieldRef ID="{B1669BDF-61BB-4587-B883-3F12796B38EE}" Name="Place" Required="TRUE"/>
+      <FieldRef ID="{E1A46486-E6FD-4895-8794-2235104E72BD}" Name="Start" Required="TRUE"/>
+      <FieldRef ID="{5A94719F-7D43-4D1E-81A5-7AC5C64D6310}" Name="End" Required="TRUE"/>
+      <FieldRef ID="{5157D758-EB9E-4CBF-96F8-122C01F6EECE}" Name="DelegationNote"/>
+      <FieldRef ID="{2FE0D5A8-9E93-407F-9C47-9588CCB74926}" Name="DelegationStatus" Required="TRUE"/>
+      <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" ReadOnly="TRUE"/>
+    </FieldRefs>
+  </ContentType>
+</Elements>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ContentType ID="0x01000D9BA4EE8E3643C5B59C571BEE40F5B4" Name="Transport" Description="Transport" Group="LS Content">
+    <FieldRefs>
+      <FieldRef ID="{DA9A54AD-5D8D-4C66-BB9A-3F8600066A21}" Name="From" DisplayName="From" Required="TRUE"/>
+      <FieldRef ID="{72B920B7-AED0-4B1D-B95D-E3E1A4ADBF89}" Name="Destination" DisplayName="Destination" Required="TRUE"/>
+      <FieldRef ID="{409F1DFB-1656-4B64-BF4F-A889F4264190}" Name="Distance"/>
+      <FieldRef ID="{7F4E2255-A846-4B76-911E-6FE2D3EB8DD8}" Name="TravelTime"/>
+      <FieldRef ID="{11FCA4AC-9A24-4184-BD8A-F08485150AE0}" Name="Cost" Required="TRUE"/>
+      <FieldRef ID="{6D6E18B1-0E0A-4E5E-9B34-E94B94D295F1}" Name="Transport" Required="TRUE"/>
+      <FieldRef ID="{B8C52ACD-4D9D-4C53-98C0-6B14DB2D4959}" Name="Delegation"/>
+    </FieldRefs>
+  </ContentType>
+</Elements>
