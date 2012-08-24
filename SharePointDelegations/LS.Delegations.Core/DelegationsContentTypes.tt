@@ -1,0 +1,129 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="Microsoft.SharePoint" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="Microsoft.SharePoint" #>
+<#@ Import Namespace="System.IO" #>
+<#@ Import Namespace="System.Reflection" #>
+<#@ Import Namespace="System.Text" #>
+<#@ Import Namespace="System.Text.RegularExpressions" #>
+using System;
+
+namespace LS.Delegations.Core
+{
+    public class DelegationsContentTypes
+    {
+<#
+			var builtInFieldsDictionary = new Dictionary<Guid, string>();
+			FieldInfo[] builtInFields = typeof(SPBuiltInFieldId).GetFields();
+
+			foreach (var field in builtInFields)
+				builtInFieldsDictionary.Add((Guid)field.GetValue(null), field.Name);
+
+			string fieldsFileContent = string.Empty;
+			string fileDirectory = this.Host.ResolvePath(@"..\LS.Delegations.Fields\Fields\Elements.xml");
+			var fields = new Dictionary<Guid, string>();
+			var fieldRefsStrings = new Dictionary<string, string>();
+
+			using (StreamReader reader = new StreamReader(fileDirectory))
+			{
+				fieldsFileContent = reader.ReadToEnd();
+			}
+
+			foreach (Match match in Regex.Matches(fieldsFileContent, "<Field.*?ID=\"(?<guid>.*?)\".*?Name=\"(?<name>.*?)\".*?DisplayName=\"(?<displayName>.*?)\".*?>"))
+				fields.Add(new Guid(match.Groups["guid"].Value), match.Groups["name"].Value);
+
+			var contentTypeDirectory = this.Host.ResolvePath(@"..\LS.Delegations.ContentTypes");
+			string[] contentTypeDirectories = Directory.GetDirectories(contentTypeDirectory);
+			string fileContent;
+
+			foreach (string contentTypeSubDirectory in contentTypeDirectories)
+			{
+				string[] files = Directory.GetFiles(contentTypeSubDirectory);
+				foreach (string fileName in files)
+				{
+					if (fileName.Contains("Elements.xml"))
+					{
+						using (TextReader textReader = new StreamReader(fileName))
+						{
+							fileContent = textReader.ReadToEnd();
+						}
+
+						foreach (Match match in Regex.Matches(fileContent, "<ContentType ID=\"(?<contentTypeId>.*?)\".*?Name=\"(?<name>.*?)\".*Description=\"(?<description>.*?)\".*?<FieldRefs>(?<fieldRefs>.*?)</FieldRefs>", RegexOptions.Singleline))
+						{
+							var fieldRefs = match.Groups["fieldRefs"].Value;
+							fieldRefsStrings.Add(match.Groups["name"].Value, match.Groups["fieldRefs"].Value);
+
+							var name = match.Groups["name"].Value;
+							var contentTypeId = match.Groups["contentTypeId"].Value;
+#>
+        public static ContentTypeInformation<Fields.<#= name #>Fields> <#= name #> = new ContentTypeInformation<Fields.<#= name #>Fields>("<#= contentTypeId #>", "<#= name #>", new Fields.<#= name #>Fields());
+<#
+						}
+					}
+				}
+			}
+#>
+
+        public class Fields
+        {
+<#
+			var currentItem = 0;
+			foreach (var fieldRefsStringPair in fieldRefsStrings)
+			{
+				currentItem++;
+#>
+            public class <#= fieldRefsStringPair.Key #>Fields
+            {
+<#
+				var matches = Regex.Matches(fieldRefsStringPair.Value, "<FieldRef ID=\"{(?<fieldId>.*?)}\".*?Name=\"(?<name>.*?)\".*?", RegexOptions.Singleline);
+				for(int i = 0; i < matches.Count; i++ )
+				{
+					var fieldId = matches[i].Groups["fieldId"].Value;
+					var name = matches[i].Groups["name"].Value;
+
+					if (fields.ContainsKey(new Guid(fieldId)))
+					{
+#>
+                public FieldInformation <#= name #> { get { return DelegationsFields.<#= fields[new Guid(fieldId)] #>; } }
+<#
+					}
+					else
+					{
+						if (!SPBuiltInFieldId.Contains(new Guid(fieldId)))
+						{
+							Warning("Field " + name + " missing ");
+						}
+						
+						var builtInFieldName = builtInFieldsDictionary.ContainsKey(new Guid(fieldId)) ? builtInFieldsDictionary[new Guid(fieldId)] : null;
+						var builtInFieldIdString = string.IsNullOrEmpty(builtInFieldName) ? string.Format("new Guid(\"{0}\")", fieldId) : string.Format("SPBuiltInFieldId.{0}", builtInFieldName);
+
+						
+					
+#>
+                public FieldInformation <#= name #> = new FieldInformation(<#= builtInFieldIdString #>, "<#= name #>", string.Empty);
+<#
+					}
+
+					if (i != matches.Count - 1)
+					{
+#>
+
+<#
+					}
+				}
+#>
+            }
+<#
+				if (currentItem != fieldRefsStrings.Count)
+				{
+#>
+
+<#
+				}
+
+			}
+#>
+        }
+    }
+}

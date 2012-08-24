@@ -1,0 +1,32 @@
+﻿<#@ template language="C#" hostspecific="true" #>
+<#@ output extension="cs" #>
+<#@ Assembly Name="Microsoft.SharePoint" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="Microsoft.SharePoint" #>
+<#@ Import Namespace="System.IO" #>
+<#@ Import Namespace="System.Text" #>
+<#@ Import Namespace="System.Text.RegularExpressions" #>
+using System;
+
+namespace LS.Delegations.Generated
+{
+    public class DelegationsFields
+    {
+<#
+		string fileContent = string.Empty;
+		string fileDirectory = this.Host.ResolvePath(@"..\LS.Delegations.Fields\Fields\Elements.xml");
+
+		using (StreamReader reader = new StreamReader(fileDirectory))
+		{
+			fileContent = reader.ReadToEnd();
+		}
+
+		foreach (Match match in Regex.Matches(fileContent, "<Field.*?ID=\"(?<guid>.*?)\".*?Name=\"(?<name>.*?)\".*?DisplayName=\"(?<displayName>.*?)\".*?>"))
+		{
+#>
+        public static FieldInformation <#= match.Groups["name"].Value #> = new FieldInformation(new Guid("<#= match.Groups["guid"].Value #>"), "<#= match.Groups["name"].Value #>", "<#= match.Groups["displayName"].Value #>");
+<#
+		}
+#>
+    }
+}

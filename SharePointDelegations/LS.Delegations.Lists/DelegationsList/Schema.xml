@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="LS - Delegations" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/SharePointDelegations-DelegationsList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      <ContentTypeRef ID="0x0100735281EF6A774E1EBF6A0EFE8FA3BD6D"></ContentTypeRef>
+    </ContentTypes>
+    <Fields>
+      <Field ID="{67d4b38a-ec78-41b7-84b6-3ce2d9e0644a}" Name="Reason" DisplayName="Reason" Type="Choice" Group="LS Columns">
+        <CHOICES>
+          <CHOICE>Client</CHOICE>
+          <CHOICE>Conference</CHOICE>
+          <CHOICE>Other</CHOICE>
+        </CHOICES>
+      </Field>
+      <Field ID="{b1669bdf-61bb-4587-b883-3f12796b38ee}" Name="Place" DisplayName="Place" Type="Lookup" Group="LS Columns" List="Lists/Places">
+      </Field>
+      <Field ID="{e1a46486-e6fd-4895-8794-2235104e72bd}" Name="Start" DisplayName="Start" Type="DateTime" Group="LS Columns" Format="DateOnly">
+      </Field>
+      <Field ID="{5a94719f-7d43-4d1e-81a5-7ac5c64d6310}" Name="End" DisplayName="End" Type="DateTime" Group="LS Columns" Format="DateOnly">
+      </Field>
+      <Field ID="{2FE0D5A8-9E93-407F-9C47-9588CCB74926}" Name="DelegationStatus" DisplayName="Status" Type="Lookup" Group="LS Columns" List="Lists/DelegationStatuses" ShowField="Title">
+      </Field>
+      <Field ID="{5157D758-EB9E-4CBF-96F8-122C01F6EECE}" Name="DelegationNote" DisplayName="Note" Type="Note" AppendOnly="TRUE" Group="LS Columns">
+      </Field>
+    </Fields>
+    <Views>
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitleNoMenu">
+          </FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="Modified" Ascending="FALSE">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="Attachments">
+          </FieldRef>
+          <FieldRef Name="LinkTitle">
+          </FieldRef>
+          <FieldRef ID="{67d4b38a-ec78-41b7-84b6-3ce2d9e0644a}" Name="Reason" >
+          </FieldRef>
+          <FieldRef ID="{b1669bdf-61bb-4587-b883-3f12796b38ee}" Name="Place" >
+          </FieldRef>
+          <FieldRef ID="{e1a46486-e6fd-4895-8794-2235104e72bd}" Name="Start" >
+          </FieldRef>
+          <FieldRef ID="{5a94719f-7d43-4d1e-81a5-7ac5c64d6310}" Name="End" >
+          </FieldRef>
+          <FieldRef ID="{5157D758-EB9E-4CBF-96F8-122C01F6EECE}" Name="DelegationNote">
+          </FieldRef>
+          <FieldRef ID="{2FE0D5A8-9E93-407F-9C47-9588CCB74926}" Name="DelegationStatus">
+          </FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="ID">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

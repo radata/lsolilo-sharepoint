@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="DelegationStatuses"
+                OnQuickLaunch="TRUE"
+                TemplateType="10004"
+                Url="Lists/DelegationStatuses"
+                Description="My List Instance"
+                Hidden="TRUE">
+  </ListInstance>
+</Elements>

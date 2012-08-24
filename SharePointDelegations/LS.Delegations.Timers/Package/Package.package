@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="96c9dd21-c0d2-4e61-8565-eed011c7e60a" solutionId="96c9dd21-c0d2-4e61-8565-eed011c7e60a" resetWebServer="false" name="Timers" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="be341c75-4330-4fff-b0d7-4b7ed43295ab" />
+  </features>
+</package>
