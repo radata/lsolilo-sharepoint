@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FieldTypes>
+  <FieldType>
+    <Field Name="TypeName">RelationField</Field>
+    <Field Name="TypeDisplayName">RelationField</Field>
+    <Field Name="TypeShortDescription">RelationField</Field>
+    <Field Name="ParentType">Text</Field>
+    <Field Name="UserCreatable">TRUE</Field>
+    <Field Name="FieldTypeClass">FPS.Controls.RelationField, $SharePoint.Project.AssemblyFullName$</Field>
+    <PropertySchema>
+      <Fields>
+        <Field Name="RelatedListName"
+               DisplayName="Child List Name"
+               MaxLength="92"
+               DisplaySize="32"
+               Type="Text">
+          <Default></Default>
+        </Field>
+        <Field Name="PrimaryKeyColumnName"
+            DisplayName="Primary key for lookup"
+            MaxLength="92"
+            DisplaySize="32"
+            Type="Text">
+          <Default></Default>
+        </Field>
+        <Field Name="LookupColumnName"
+          DisplayName="Lookup column"
+          MaxLength="92"
+          DisplaySize="32"
+          Type="Text">
+          <Default></Default>
+        </Field>
+        <Field Name="ViewName"
+          DisplayName="View Name"
+          MaxLength="92"
+          DisplaySize="32"
+          Type="Text">
+          <Default></Default>
+        </Field>
+      </Fields>
+    </PropertySchema>
+  </FieldType>
+</FieldTypes>

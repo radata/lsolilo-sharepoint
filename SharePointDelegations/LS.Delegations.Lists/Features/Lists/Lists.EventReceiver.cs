@@ -1,13 +1,10 @@
 using System;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
-using Microsoft.SharePoint;
-using Microsoft.SharePoint.Security;
-using LS.Delegations.Generated;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Collections.Generic;
-using Generated;
+using System.Runtime.InteropServices;
+using LS.Delegations.Generated;
+using LS.Delegations.Generated;
+using LS.Delegations.Lists;
+using Microsoft.SharePoint;
 
 namespace SharePointDelegations.Features.Lists
 {
@@ -52,17 +49,14 @@ namespace SharePointDelegations.Features.Lists
             foreach (DelegationApprovalStatus status in Enum.GetValues(typeof(DelegationApprovalStatus)))
             {
                 SPListItem item = statusList.AddItem();
-                item["Title"] = EnumHelper.GetEnumDescription(status);
+                item[SPBuiltInFieldId.Title] = EnumHelper.GetEnumDescription(status);
                 item.Update();
 
                 if (status == DelegationApprovalStatus.Approved)
                 {
                     item.BreakRoleInheritance(false);
                     string groupName = string.Format("{0} {1}", web.Title, UserGroupType.Owners);
-                    SPRoleDefinition roleDefinition = web.RoleDefinitions.GetByType(SPRoleType.Administrator);
-                    SPRoleAssignment roleAssignment = new SPRoleAssignment(web.SiteGroups[groupName]);
-                    roleAssignment.RoleDefinitionBindings.Add(roleDefinition);
-                    item.RoleAssignments.Add(roleAssignment);
+                    Permissions.GrantPermission(web, item, groupName, SPRoleType.Administrator);
                     item.Update();
                 }
             }

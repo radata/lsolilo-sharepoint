@@ -7,7 +7,7 @@
     <ProjectGuid>{C1056BC7-B836-4DB4-9297-6C3D513E072B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Generated</RootNamespace>
+    <RootNamespace>LS.Delegations.Generated</RootNamespace>
     <AssemblyName>Generated</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -69,6 +69,7 @@
     <Compile Include="EnumHelper.cs" />
     <Compile Include="FieldInformation.cs" />
     <Compile Include="ListInformation.cs" />
+    <Compile Include="Permissions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserGroupType.cs" />
   </ItemGroup>

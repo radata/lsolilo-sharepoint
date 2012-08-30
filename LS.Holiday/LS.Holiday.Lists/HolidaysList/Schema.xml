@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="LS - HolidaysList" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/LS.Holiday.Lists-HolidaysList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      <ContentType ID="0x0100119F2245F9444258B7A642E6560B9EE3" Name="Holiday" Group="Holidays Content Types" Description="Holiday data." Inherits="FALSE" Version="0">
+        <FieldRefs>
+          <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Hidden="TRUE" ReadOnly="TRUE" />
+          <FieldRef ID="{54980C38-C397-46DF-9E3F-4A4B659D67C0}" Name="StartDate" Required="TRUE" />
+          <FieldRef ID="{621F6446-3D87-4D93-A6C3-AEE110947796}" Name="EndDate" Required="TRUE" />
+          <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="Description" />
+          <FieldRef ID="{8D6ECDAA-E93E-4079-AD3E-ADAD7FAA25E9}" Name="ProjectLeader" Required="TRUE" />
+          <FieldRef ID="{0D852C4D-AD57-4008-A4E4-1A6568E0FA15}" Name="Status" Required="TRUE" />
+        </FieldRefs>
+      </ContentType>
+    </ContentTypes>
+    <Fields>
+      <Field ID="{0d852c4d-ad57-4008-a4e4-1a6568e0fa15}" Name="Status" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,StatusColumnName" Type="Choice" Format="RadioButtons">
+    <CHOICES>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,NewChoiceOption</CHOICE>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,ApprovedChoiceOption</CHOICE>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,DeclinedChoiceOption</CHOICE>
+    </CHOICES>
+    <Default>$Resources:LS.Holiday.Core.Resources,NewChoiceOption</Default>
+  </Field>
+      <Field ID="{54980c38-c397-46df-9e3f-4a4b659d67c0}" Name="StartDate" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,StartDateColumnName" Type="DateTime" Format="DateOnly" />
+      <Field ID="{621f6446-3d87-4d93-a6c3-aee110947796}" Name="EndDate" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,EndDateColumnName" Type="DateTime" Format="DateOnly" />
+      <Field ID="{8d6ecdaa-e93e-4079-ad3e-adad7faa25e9}" Name="ProjectLeader" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,ProjectLeaderColumnName" Type="ProjectLeader" UserSelectionMode="0" List="UserInfo" />
+      <Field ID="{6b18058b-6afe-4800-8482-4a91a01ec7f4}" Name="Description" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
+    </Fields>
+    <Views>
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitleNoMenu">
+          </FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="Modified" Ascending="FALSE">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="Attachments">
+          </FieldRef>
+          <FieldRef Name="LinkTitle">
+          </FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="ID">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

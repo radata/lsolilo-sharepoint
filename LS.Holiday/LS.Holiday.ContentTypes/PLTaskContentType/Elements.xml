@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Task (0x0108) -->
+  <ContentType ID="0x0108010026E5350277764EBB9850F108E812F91A"
+               Name="ProjectLeaderTask"
+               Group="Holidays Content Types"
+               Description="Task used in requesting holidays assigned to Project Leader."
+               Inherits="FALSE"
+               Version="0">
+    <FieldRefs>
+      <FieldRef ID="{29439BF4-F1CA-4277-B6F0-A1947F591213}" Name="Decision" Required="TRUE"/>
+      <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="Description"/>
+    </FieldRefs>
+  </ContentType>
+</Elements>

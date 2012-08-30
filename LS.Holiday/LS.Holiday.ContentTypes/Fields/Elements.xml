@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Field ID="{0D852C4D-AD57-4008-A4E4-1A6568E0FA15}" Name="Status" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,StatusColumnName" Type="Choice" Format="RadioButtons">
+    <CHOICES>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,NewChoiceOption</CHOICE>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,ApprovedChoiceOption</CHOICE>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,DeclinedChoiceOption</CHOICE>
+    </CHOICES>
+    <Default>$Resources:LS.Holiday.Core.Resources,NewChoiceOption</Default>
+  </Field>
+  <Field ID="{29439BF4-F1CA-4277-B6F0-A1947F591213}" Name="Decision" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DecisionColumnName" Type="Choice" Format="RadioButtons">
+    <CHOICES>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,ApproveChoiceOption</CHOICE>
+      <CHOICE>$Resources:LS.Holiday.Core.Resources,DeclineChoiceOption</CHOICE>
+    </CHOICES>
+    <Default>$Resources:LS.Holiday.Core.Resources,ApproveChoiceOption</Default>
+  </Field>
+  <Field ID="{54980C38-C397-46DF-9E3F-4A4B659D67C0}" Name="StartDate" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,StartDateColumnName" Type="DateTime" Format="DateOnly" />
+  <Field ID="{621F6446-3D87-4D93-A6C3-AEE110947796}" Name="EndDate" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,EndDateColumnName" Type="DateTime" Format="DateOnly" />
+  <Field ID="{8D6ECDAA-E93E-4079-AD3E-ADAD7FAA25E9}" Name="ProjectLeader" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,ProjectLeaderColumnName" Type="ProjectLeader" UserSelectionMode="0" List="UserInfo"/>
+  <Field ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="Description" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
+</Elements>

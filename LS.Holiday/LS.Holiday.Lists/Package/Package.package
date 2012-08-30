@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="5137e6bd-2503-4c22-93c3-533bc6ab0bc7" solutionId="5137e6bd-2503-4c22-93c3-533bc6ab0bc7" resetWebServer="false" name="LS.Holiday.Lists" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="eda8c6b7-2eea-4658-b486-35f40c142aa0" />
+  </features>
+</package>

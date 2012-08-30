@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D4159CA-FCE5-4EFF-884C-64D1275937C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FPS.Core</RootNamespace>
+    <AssemblyName>FPS.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <AssemblyDeploymentTarget>GlobalAssemblyCache</AssemblyDeploymentTarget>
+    <ActiveDeploymentConfiguration>Default</ActiveDeploymentConfiguration>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>default</LangVersion>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Library\Microsoft\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Security" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DescriptionAttribute.cs" />
+    <Compile Include="CalendarReminderUtility.cs" />
+    <Compile Include="CalendarItem.cs" />
+    <Compile Include="ContentTypeInformation.cs" />
+    <Compile Include="Enums\CustomPropertyType.cs" />
+    <Compile Include="DisabledItemEventsScope.cs" />
+    <Compile Include="ICollectionHelper.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="JobInstaller.cs" />
+    <Compile Include="ListIdChanger.cs" />
+    <Compile Include="MasterPagePlaceHolders.cs" />
+    <Compile Include="NumbersAsTextInPolish.cs" />
+    <Compile Include="ObjectHelper.cs" />
+    <Compile Include="PermissionHelper.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBuilder\CamlQueryExtensions.cs" />
+    <Compile Include="QueryBuilder\CamlQueryHelper.cs" />
+    <Compile Include="QueryBuilder\CamlQuerySchemaElementsAttribute.cs" />
+    <Compile Include="QueryBuilder\CamQueryVariables.cs" />
+    <Compile Include="QueryBuilder\Enums\BoolenValues.cs" />
+    <Compile Include="QueryBuilder\Enums\CamlQuerySchemaAttributes.cs" />
+    <Compile Include="QueryBuilder\Interfaces\IQueryElement.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\Base\CamlQuery.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\Base\CamlQueryComparisonOperator.cs" />
+    <Compile Include="QueryBuilder\Enums\CamlQuerySchemaElements.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\Base\GroupBy.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\Contains.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\Eq.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\Geq.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\IsNotNull.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\IsNull.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\Leq.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\Lt.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\ComparisonOperators\Neq.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\LogicalJoins\And.cs" />
+    <Compile Include="QueryBuilder\QuerySchemaElements\LogicalJoins\Or.cs" />
+    <Compile Include="SafeParser.cs" />
+    <Compile Include="SPBuiltInFieldNames.cs" />
+    <Compile Include="SPConstants.cs" />
+    <Compile Include="FieldInformation.cs" />
+    <Compile Include="IEnumerableHelper.cs" />
+    <Compile Include="ListInformation.cs" />
+    <Compile Include="SPFieldHelper.cs" />
+    <Compile Include="SPItemEventPropertiesHelper.cs" />
+    <Compile Include="SPListHelper.cs" />
+    <Compile Include="SPListItemCollectionHelper.cs" />
+    <Compile Include="SPListItemHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SPWebHelper.cs" />
+    <Compile Include="StringBuilderHelpers.cs" />
+    <Compile Include="StringHelper.cs" />
+    <Compile Include="Attributes\StringValueAttributeBase.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="ValidatorBase.cs" />
+    <Compile Include="ValidatorManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{dc1750f6-dae1-4e1d-8b88-aa7701b53693}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{ac5a5765-3738-4390-a64d-9147b449c2ae}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{293c61e7-57cd-4662-b31f-8b6559b2e520}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FPS.Diagnostics\FPS.Diagnostics.csproj">
+      <Project>{9BE3D7F4-7A2B-4132-A3C6-DE7B909B46C6}</Project>
+      <Name>FPS.Diagnostics</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layouts\inc\jQuery\jquery-1.7.1.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="false" />
+</Project>

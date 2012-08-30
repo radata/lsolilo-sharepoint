@@ -19,6 +19,7 @@ namespace LS.Delegations.EventReceivers.DelegationsEventReceiver
         public override void ItemAdding(SPItemEventProperties properties)
         {
             base.ItemAdding(properties);
+            DelegationApprovalCycle.RespondToDelegationAdding(properties);
         }
 
         /// <summary>
@@ -26,16 +27,35 @@ namespace LS.Delegations.EventReceivers.DelegationsEventReceiver
         /// </summary>
         public override void ItemUpdating(SPItemEventProperties properties)
         {
+            EventFiringEnabled = false;
             base.ItemUpdating(properties);
+            DelegationApprovalCycle.RespondToDelegationUpdating(properties);
+            EventFiringEnabled = true;
+
         }
 
+        /// <summary>
+        /// Asynchronous After event that occurs after a new item has been added to its containing object.
+        /// </summary>
+        /// <param name="properties"></param>
         public override void ItemAdded(SPItemEventProperties properties)
         {
+            EventFiringEnabled = false;
             base.ItemAdded(properties);
-            properties.ListItem["Title"] = string.Format("{0} ({1:d})",
-                properties.ListItem[DelegationsFields.Place],
-                properties.ListItem[DelegationsFields.Start]);
-            properties.ListItem.Update();
+            DelegationApprovalCycle.RespondToItemAdded(properties);
+            EventFiringEnabled = true;
+        }
+
+        /// <summary>
+        /// Asynchronous After event that occurs after an existing item is changed, for example, when the user changes data in one or more fields.
+        /// </summary>
+        /// <param name="properties">An <see cref="T:Microsoft.SharePoint.SPItemEventProperties"/> object that represents properties of the event handler.</param>
+        public override void ItemUpdated(SPItemEventProperties properties)
+        {
+            EventFiringEnabled = false;
+            base.ItemUpdated(properties);
+            DelegationApprovalCycle.RespondToItemUpdated(properties);
+            EventFiringEnabled = true;
         }
     }
 }

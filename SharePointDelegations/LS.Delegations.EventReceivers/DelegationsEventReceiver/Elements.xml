@@ -22,5 +22,12 @@
       <Class>LS.Delegations.EventReceivers.DelegationsEventReceiver.DelegationsEventReceiver</Class>
       <SequenceNumber>10000</SequenceNumber>
     </Receiver>
+    <Receiver>
+      <Name>DelegationsEventReceiverItemUpdated</Name>
+      <Type>ItemUpdated</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>LS.Delegations.EventReceivers.DelegationsEventReceiver.DelegationsEventReceiver</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
   </Receivers>
 </Elements>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace SharePointDelegations
+namespace LS.Delegations.Lists
 {
     public enum DelegationApprovalStatus
     {

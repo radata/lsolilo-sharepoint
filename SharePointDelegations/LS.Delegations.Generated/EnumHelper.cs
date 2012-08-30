@@ -5,10 +5,15 @@ using System.Text;
 using System.Reflection;
 using System.ComponentModel;
 
-namespace Generated
+namespace LS.Delegations.Generated
 {
     public class EnumHelper
     {
+        /// <summary>
+        /// Gets the enum description.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
         public static string GetEnumDescription(Enum value)
         {
             FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
