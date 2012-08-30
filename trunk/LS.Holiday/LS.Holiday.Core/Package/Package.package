@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0a428ab5-3fbb-44b9-90af-4f5e47f88eb7" solutionId="0a428ab5-3fbb-44b9-90af-4f5e47f88eb7" resetWebServer="false" name="LS.Holiday.Core" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="802133b8-5ee1-4e30-a81e-4ca72ec4815e" />
+  </projectItems>
+</package>

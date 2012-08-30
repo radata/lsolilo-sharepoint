@@ -50,6 +50,7 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelegationApprovalCycle.cs" />
     <Compile Include="DelegationsEventReceiver\DelegationsEventReceiver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,7 +70,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DelegationsEventReceiver\Elements.xml" />
+    <Content Include="DelegationsEventReceiver\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Features\EventReceivers\EventReceivers.Template.xml">
       <DependentUpon>EventReceivers.feature</DependentUpon>
     </Content>

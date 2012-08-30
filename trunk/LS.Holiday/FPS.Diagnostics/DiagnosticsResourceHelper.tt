@@ -1,0 +1,54 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="Microsoft.SharePoint" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="Microsoft.SharePoint" #>
+<#@ Import Namespace="System.IO" #>
+<#@ Import Namespace="System.Text" #>
+<#@ Import Namespace="System.Text.RegularExpressions" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.SharePoint.Utilities;
+
+namespace FPS.Diagnostics
+{
+    internal static class DiagnosticsResourceHelper
+    {
+        #region Fields
+
+        private static string _resourceName = "$Resources:FPS.Diagnostics.Strings,{0}";
+        private static string _defaultResource = "FPS.Diagnostics.Strings";
+        private static uint _defaultLanguageCode = 1033;
+
+        #endregion
+
+        #region Properties
+
+<#
+		string fileContent = string.Empty;
+		string fileDirectory = this.Host.ResolvePath(@"..\FPS.Diagnostics\Resources\FPS.Diagnostics.Strings.en-US.resx");
+
+		using (StreamReader reader = new StreamReader(fileDirectory))
+		{
+			fileContent = reader.ReadToEnd();
+		}
+
+		foreach (Match match in Regex.Matches(fileContent, "<data name=\"(?<name>[\\w\\d]+)\"? xml:space=\"preserve\".*?<value>(?<value>.*?)</value>.*?<comment>(?<comment>.*?)</comment>.*?</data>", RegexOptions.Singleline))
+		{
+#>
+        /// <summary>
+        /// Gets <#= match.Groups["comment"].Value.TrimEnd('.') + "." #>
+        /// </summary>
+        public static string <#= match.Groups["name"].Value #>
+        {
+            get { return SPUtility.GetLocalizedString(string.Format(_resourceName, "<#= match.Groups["name"].Value #>"), _defaultResource, _defaultLanguageCode); }
+        }
+
+<#
+		}
+#>
+        #endregion
+    }
+}

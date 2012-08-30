@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0332fce0-a571-45f1-87cf-ec4198e6ed5e" solutionId="0332fce0-a571-45f1-87cf-ec4198e6ed5e" resetWebServer="false" name="FPS.Diagnostics" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="5e68c0dc-87bb-4fe9-8a3b-7f554acbc7ce" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="65211cd5-1a7b-4df5-ae56-b9580100c7ee" />
+  </projectItems>
+</package>

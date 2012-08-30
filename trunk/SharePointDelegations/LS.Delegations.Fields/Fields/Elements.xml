@@ -7,13 +7,13 @@
       <CHOICE>Other</CHOICE>
     </CHOICES>
   </Field>
-  <Field ID="{11FCA4AC-9A24-4184-BD8A-F08485150AE0}" Name="Cost" DisplayName="Cost" Type="Currency" Group="LS Columns" LCID="1045"></Field>
-  <Field ID="{B1669BDF-61BB-4587-B883-3F12796B38EE}" Name="Place" DisplayName="Place" Type="Lookup" Group="LS Columns" List="Lists/Places"></Field>
-  <Field ID="{DA9A54AD-5D8D-4C66-BB9A-3F8600066A21}" Name="From" DisplayName="From" Type="Lookup" Group="LS Columns" List="Lists/Places"></Field>
-  <Field ID="{72B920B7-AED0-4B1D-B95D-E3E1A4ADBF89}" Name="Destination" DisplayName="Destination" Type="Lookup" Group="LS Columns" List="Lists/Places"></Field>
-  <Field ID="{B8C52ACD-4D9D-4C53-98C0-6B14DB2D4959}" Name="Delegation" DisplayName="Delegation" Type="Lookup" Group="LS Columns" List="Lists/Delegations" ShowField="Title"></Field>
-  <Field ID="{2FE0D5A8-9E93-407F-9C47-9588CCB74926}" Name="DelegationStatus" DisplayName="Status" Type="Lookup" Group="LS Columns" List="Lists/DelegationStatuses" ShowField="Title"></Field>
-  <Field ID="{6D6E18B1-0E0A-4E5E-9B34-E94B94D295F1}" Name="Transport" DisplayName="Transport" Type="Choice" Group="LS Columns">
+  <Field ID="{11FCA4AC-9A24-4184-BD8A-F08485150AE0}" Name="Cost" DisplayName="Cost" Type="Currency" Group="LS Columns" Description="$Resources:Cost" LCID="1045"></Field>
+  <Field ID="{B1669BDF-61BB-4587-B883-3F12796B38EE}" Name="Place" DisplayName="Place" Type="Lookup" Group="LS Columns" Description="$Resources:Place" List="Lists/Places"></Field>
+  <Field ID="{DA9A54AD-5D8D-4C66-BB9A-3F8600066A21}" Name="From" DisplayName="From" Type="Lookup" Group="LS Columns" Description="$Resources:From" List="Lists/Places"></Field>
+  <Field ID="{72B920B7-AED0-4B1D-B95D-E3E1A4ADBF89}" Name="Destination" DisplayName="Destination" Type="Lookup" Group="LS Columns" Description="$Resources:Destination" List="Lists/Places"></Field>
+  <Field ID="{B8C52ACD-4D9D-4C53-98C0-6B14DB2D4959}" Name="Delegation" DisplayName="Delegation" Type="Lookup" Group="LS Columns" Description="$Resources:Delegation" List="Lists/Delegations" ShowField="Title"></Field>
+  <Field ID="{2FE0D5A8-9E93-407F-9C47-9588CCB74926}" Name="DelegationStatus" DisplayName="Status" Type="Lookup" Group="LS Columns" Description="$Resources:DelegationStatus" List="Lists/DelegationStatuses" ShowField="Title"></Field>
+  <Field ID="{6D6E18B1-0E0A-4E5E-9B34-E94B94D295F1}" Name="Transport" DisplayName="Transport" Type="Choice" Group="LS Columns" Description="$Resources:Transport">
     <CHOICES>
       <CHOICE>Plane</CHOICE>
       <CHOICE>Car</CHOICE>
@@ -24,20 +24,20 @@
       <CHOICE>Other</CHOICE>
     </CHOICES>
   </Field>
-  <Field ID="{409F1DFB-1656-4B64-BF4F-A889F4264190}" Name="Distance" DisplayName="Distance (km)" Type="Number" Group="LS Columns"></Field>
-  <Field ID="{7F4E2255-A846-4B76-911E-6FE2D3EB8DD8}" Name="TravelTime" DisplayName="Travel Time (h)" Type="Number" Group="LS Columns"></Field>
-  <Field ID="{34AFC031-7CD2-4329-A099-09A1FF7AFEBC}" Name="Location" DisplayName="Location" Type="Choice" Group="LS Columns">
+  <Field ID="{409F1DFB-1656-4B64-BF4F-A889F4264190}" Name="Distance" DisplayName="Distance (km)" Type="Number" Group="LS Columns" Description="$Resources:Distance"></Field>
+  <Field ID="{7F4E2255-A846-4B76-911E-6FE2D3EB8DD8}" Name="TravelTime" DisplayName="Travel Time (h)" Type="Number" Group="LS Columns" Description="$Resources:TravelTime"></Field>
+  <Field ID="{34AFC031-7CD2-4329-A099-09A1FF7AFEBC}" Name="Location" DisplayName="Location" Type="Choice" Group="LS Columns" Description="$Resources:Location">
     <CHOICES>
       <CHOICE>Hotel</CHOICE>
       <CHOICE>Apartment</CHOICE>
       <CHOICE>Other</CHOICE>
     </CHOICES>
   </Field>
-  <Field ID="{43991A03-864F-4861-A01F-CBCBA6DC5F51}" Name="Days" DisplayName="Days" Type="Number" Group="LS Columns"></Field>
-  <Field ID="{E1A46486-E6FD-4895-8794-2235104E72BD}" Name="Start" DisplayName="Start" Type="DateTime" Group="LS Columns" Format="DateOnly"></Field>
-  <Field ID="{5A94719F-7D43-4D1E-81A5-7AC5C64D6310}" Name="End" DisplayName="End" Type="DateTime" Group="LS Columns" Format="DateOnly"></Field>
-  <Field ID="{12BD2AB2-FB9C-4640-9C71-4B73F07202E4}" Name="City" DisplayName="City" Type="Text" Group="LS Columns"></Field>
-  <Field ID="{EEDEB061-2368-4981-BCE4-8CACB8BD865D}" Name="MonthIndicator" DisplayName="Month" Type="DateTime" Group="LS Columns" Format="DateOnly"></Field>
-  <Field ID="{8FB3D31E-CCDB-4B8D-A280-ED3E632983BD}" Name="MonthlyCost" DisplayName="Monthly Cost" Type="Currency" LCID="1045" Group="LS Columns"></Field>
-  <Field ID="{5157D758-EB9E-4CBF-96F8-122C01F6EECE}" Name="DelegationNote" DisplayName="Note" Type="Note" AppendOnly="TRUE" Group="LS Columns"></Field>
+  <Field ID="{43991A03-864F-4861-A01F-CBCBA6DC5F51}" Name="Days" DisplayName="Days" Type="Number" Group="LS Columns" Description="$Resources:Days"></Field>
+  <Field ID="{E1A46486-E6FD-4895-8794-2235104E72BD}" Name="Start" DisplayName="Start" Type="DateTime" Group="LS Columns" Description="$Resources:Start" Format="DateOnly"></Field>
+  <Field ID="{5A94719F-7D43-4D1E-81A5-7AC5C64D6310}" Name="End" DisplayName="End" Type="DateTime" Group="LS Columns" Description="$Resources:End" Format="DateOnly"></Field>
+  <Field ID="{12BD2AB2-FB9C-4640-9C71-4B73F07202E4}" Name="City" DisplayName="City" Type="Text" Group="LS Columns" Description="$Resources:City"></Field>
+  <Field ID="{EEDEB061-2368-4981-BCE4-8CACB8BD865D}" Name="MonthIndicator" DisplayName="Month" Type="DateTime" Group="LS Columns" Description="$Resources:MonthIndicator" Format="DateOnly"></Field>
+  <Field ID="{8FB3D31E-CCDB-4B8D-A280-ED3E632983BD}" Name="MonthlyCost" DisplayName="Monthly Cost" Type="Currency" LCID="1045" Group="LS Columns" Description="$Resources:MonthlyCost"></Field>
+  <Field ID="{5157D758-EB9E-4CBF-96F8-122C01F6EECE}" Name="DelegationNote" DisplayName="Note" Type="Note" AppendOnly="TRUE" Group="LS Columns" Description="$Resources:DelegationNote"></Field>
 </Elements>

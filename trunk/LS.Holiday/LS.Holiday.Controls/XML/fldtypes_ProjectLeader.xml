@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FieldTypes>
+  <FieldType>
+    <Field Name="TypeName">ProjectLeader</Field>
+    <Field Name="ParentType">User</Field>
+    <Field Name="TypeDisplayName">Project Leader</Field>
+    <Field Name="TypeShortDescription">Person or Group (Project Leader is default)</Field>
+    <Field Name="UserCreatable">TRUE</Field>
+    <Field Name="ShowInListCreate">TRUE</Field>
+    <Field Name="ShowInSurveyCreate">TRUE</Field>
+    <Field Name="ShowInDocumentLibraryCreate">TRUE</Field>
+    <Field Name="ShowInColumnTemplateCreate">TRUE</Field>
+    <Field Name="FieldTypeClass">LS.Holiday.Controls.ProjectLeaderControl, $SharePoint.Project.AssemblyFullName$</Field>
+    <Field Name="FieldEditorUserControl">/_controltemplates/UserFieldEditor.ascx</Field>
+    <RenderPattern Name="HeaderPattern">
+      <Switch>
+        <Expr>
+          <PresenceEnabled/>
+          <HTML>-</HTML>
+          <Property Select="ShowFieldImnHeader"/>
+          <GetVar Name="FileDialog"/>
+        </Expr>
+        <Default>
+          <Switch>
+            <Expr>
+              <Property Select="Sortable"/>
+            </Expr>
+            <Case Value="FALSE">
+              <Property Select='DisplayName' HTMLEncode="TRUE"/>
+            </Case>
+            <Default>
+              <Switch>
+                <Expr>
+                  <Property Select='Filterable'/>
+                </Expr>
+                <Case Value="FALSE"> </Case>
+                <Default>
+                  <Switch>
+                    <Expr>
+                      <GetVar Name='Filter'/>
+                    </Expr>
+                    <Case Value='1'>
+                      <HTML><![CDATA[<SELECT id="diidFilter]]></HTML>
+                      <Property Select='Name'/>
+                      <HTML>                  <![CDATA[" TITLE=]]></HTML>
+                      <HTML>"$Resources:core,501;</HTML>
+                      <Property Select='DisplayName' HTMLEncode='TRUE'/>
+                      <HTML><![CDATA[" OnChange='FilterField("]]></HTML>
+                      <GetVar Name="View"/>
+                      <HTML><![CDATA[",]]></HTML>
+                      <ScriptQuote>
+                        <Property Select='Name' URLEncode="TRUE"/>
+                      </ScriptQuote>
+                      <HTML><![CDATA[,this.options[this.selectedIndex].value, this.selectedIndex);' dir="]]></HTML>
+                      <Property Select="Direction" HTMLEncode="TRUE"/>
+                      <HTML><![CDATA[">]]></HTML>
+                      <FieldFilterOptions BooleanTrue="$Resources:core,fld_yes;" BooleanFalse="$Resources:core,fld_no;" NullString="$Resources:core,fld_empty;" AllItems="$Resources:core,fld_all;"></FieldFilterOptions>
+                      <HTML><![CDATA[</SELECT><br>]]></HTML>
+                    </Case>
+                  </Switch>
+                </Default>
+              </Switch>
+              <Switch>
+                <Expr>
+                  <Property Select='Sortable'/>
+                </Expr>
+                <Case Value="FALSE">
+                  <Property Select='DisplayName' HTMLEncode="TRUE"/>
+                </Case>
+                <Default>
+                  <Switch>
+                    <Expr>
+                      <GetVar Name='SortDisable'/>
+                    </Expr>
+                    <Case Value='TRUE'>
+                      <Property Select='DisplayName' HTMLEncode="TRUE"/>
+                    </Case>
+                    <Default>
+                      <HTML><![CDATA[<a id="diidSort]]></HTML>
+                      <Property Select='Name'/>
+                      <HTML>        <![CDATA[" onfocus="OnFocusFilter(this)" title=]]></HTML>
+                      <HTML>"$Resources:core,500;</HTML>
+                      <Property Select='DisplayName' HTMLEncode='TRUE'/>
+                      <HTML><![CDATA[" href="javascript:" onclick="javascript:return OnClickFilter(this,event);" ]]></HTML>
+                      <HTML><![CDATA[ SortingFields="]]></HTML>
+                      <FieldSortParams HTMLEncode="TRUE"/>
+                      <HTML><![CDATA[">]]></HTML>
+                      <Property Select='DisplayName' HTMLEncode="TRUE"/>
+                      <HTML><![CDATA[<img src="/_layouts/images/blank.gif" class="ms-hidden" border="0" width="1" height="1" alt="$Resources:core,OpenMenuKeyAccessible;"/>]]></HTML>
+                      <HTML><![CDATA[</a><img src="]]></HTML>
+                      <FieldSortImageURL/>
+                      <HTML><![CDATA[" alt="]]></HTML>
+                      <Switch>
+                        <Expr>
+                          <GetVar Name='SortDir'/>
+                        </Expr>
+                        <Case Value='Asc'>
+                          <HTML>$Resources:core,150;</HTML>
+                        </Case>
+                        <Case Value='Desc'>
+                          <HTML>$Resources:core,151;</HTML>
+                        </Case>
+                        <Default>
+                          <HTML></HTML>
+                        </Default>
+                      </Switch>
+                      <HTML><![CDATA[" border="0"/>]]></HTML>
+                    </Default>
+                  </Switch>
+                </Default>
+              </Switch>
+              <HTML><![CDATA[<img src="]]></HTML>
+              <FieldFilterImageURL/>
+              <HTML><![CDATA[" border="0" alt=""/>]]></HTML>
+            </Default>
+          </Switch>
+        </Default>
+        <Case Value="TRUE-TRUE">
+          <Switch>
+            <Expr>
+              <Property Select="Filterable"/>
+            </Expr>
+            <Case Value="FALSE">
+              <Switch>
+                <Expr>
+                  <GetVar Name="MasterVersion" />
+                </Expr>
+                <Case Value="4">
+                  <HTML><![CDATA[<img altbase="]]><![CDATA[$Resources:idPresEnabled;]]><![CDATA[" src="/_layouts/images/blank.gif" onload="IMNRegisterHeader(event)" id="imnhdr]]></HTML>
+                  <Counter/>
+                  <HTML><![CDATA["/>]]></HTML>
+                </Case>
+                <Default>
+                  <HTML><![CDATA[<table cellpadding="0" cellspacing="0" dir="]]></HTML>
+                  <Property Select="Direction" HTMLEncode="TRUE"/>
+                  <HTML><![CDATA["><tr><td class="ms-imnImgTD"><img border="0" valign="middle" height="12" width="12" altbase="]]><![CDATA[$Resources:idPresEnabled;]]><![CDATA[" src="/_layouts/images/blank.gif" onload="IMNRegisterHeader(event)" id="imnhdr]]></HTML>
+                  <Counter/>
+                  <HTML><![CDATA["/></td><td nowrap="nowrap" class="ms-vh ms-imnTxtTD">]]></HTML>
+                </Default>
+              </Switch>
+              <Property Select="DisplayName" HTMLEncode="TRUE"/>
+            </Case>
+            <Default>
+              <Switch>
+                <Expr>
+                  <Property Select='Filterable'/>
+                </Expr>
+                <Case Value="FALSE"> </Case>
+                <Default>
+                  <Switch>
+                    <Expr>
+                      <GetVar Name='Filter'/>
+                    </Expr>
+                    <Case Value='1'>
+                      <HTML><![CDATA[<SELECT id="diidFilter]]></HTML>
+                      <Property Select='Name'/>
+                      <HTML>                  <![CDATA[" TITLE=]]></HTML>
+                      <HTML>"$Resources:core,501;</HTML>
+                      <Property Select='DisplayName' HTMLEncode='TRUE'/>
+                      <HTML><![CDATA[" OnChange='FilterField("]]></HTML>
+                      <GetVar Name="View"/>
+                      <HTML><![CDATA[",]]></HTML>
+                      <ScriptQuote>
+                        <Property Select='Name' URLEncode="TRUE"/>
+                      </ScriptQuote>
+                      <HTML><![CDATA[,this.options[this.selectedIndex].value, this.selectedIndex);' dir="]]></HTML>
+                      <Property Select="Direction" HTMLEncode="TRUE"/>
+                      <HTML><![CDATA[">]]></HTML>
+                      <FieldFilterOptions BooleanTrue="$Resources:core,fld_yes;" BooleanFalse="$Resources:core,fld_no;" NullString="$Resources:core,fld_empty;" AllItems="$Resources:core,fld_all;"></FieldFilterOptions>
+                      <HTML><![CDATA[</SELECT><br>]]></HTML>
+                    </Case>
+                  </Switch>
+                </Default>
+              </Switch>
+              <Switch>
+                <Expr>
+                  <GetVar Name="MasterVersion" />
+                </Expr>
+                <Case Value="4">
+                  <HTML><![CDATA[<img altbase="]]><![CDATA[$Resources:idPresEnabled;]]><![CDATA[" src="/_layouts/images/blank.gif" onload="IMNRegisterHeader(event)" id="imnhdr]]></HTML>
+                  <Counter/>
+                  <HTML><![CDATA["/>]]></HTML>
+                </Case>
+                <Default>
+                  <HTML><![CDATA[<table cellpadding="0" cellspacing="0" dir="]]></HTML>
+                  <Property Select="Direction" HTMLEncode="TRUE"/>
+                  <HTML><![CDATA["><tr><td class="ms-imnImgTD"><img border="0" valign="middle" height="12" width="12" altbase="]]><![CDATA[$Resources:idPresEnabled;]]><![CDATA[" src="/_layouts/images/blank.gif" onload="IMNRegisterHeader(event)" id="imnhdr]]></HTML>
+                  <Counter/>
+                  <HTML><![CDATA["/></td><td nowrap="nowrap" class="ms-vh ms-imnTxtTD">]]></HTML>
+                </Default>
+              </Switch>
+              <Switch>
+                <Expr>
+                  <Property Select='Sortable'/>
+                </Expr>
+                <Case Value="FALSE">
+                  <Property Select='DisplayName' HTMLEncode="TRUE"/>
+                </Case>
+                <Default>
+                  <Switch>
+                    <Expr>
+                      <GetVar Name='SortDisable'/>
+                    </Expr>
+                    <Case Value='TRUE'>
+                      <Property Select='DisplayName' HTMLEncode="TRUE"/>
+                    </Case>
+                    <Default>
+                      <HTML><![CDATA[<a id="diidSort]]></HTML>
+                      <Property Select='Name'/>
+                      <HTML>        <![CDATA[" onfocus="OnFocusFilter(this)" title=]]></HTML>
+                      <HTML>"$Resources:core,500;</HTML>
+                      <Property Select='DisplayName' HTMLEncode='TRUE'/>
+                      <HTML><![CDATA[" href="javascript:" onclick="javascript:return OnClickFilter(this,event);" ]]></HTML>
+                      <HTML><![CDATA[ SortingFields="]]></HTML>
+                      <FieldSortParams HTMLEncode="TRUE"/>
+                      <HTML><![CDATA[">]]></HTML>
+                      <Property Select='DisplayName' HTMLEncode="TRUE"/>
+                      <HTML><![CDATA[<img src="/_layouts/images/blank.gif" class="ms-hidden" border="0" width="1" height="1" alt="$Resources:core,OpenMenuKeyAccessible;"/>]]></HTML>
+                      <HTML><![CDATA[</a><img src="]]></HTML>
+                      <FieldSortImageURL/>
+                      <HTML><![CDATA[" alt="]]></HTML>
+                      <Switch>
+                        <Expr>
+                          <GetVar Name='SortDir'/>
+                        </Expr>
+                        <Case Value='Asc'>
+                          <HTML>$Resources:core,150;</HTML>
+                        </Case>
+                        <Case Value='Desc'>
+                          <HTML>$Resources:core,151;</HTML>
+                        </Case>
+                        <Default>
+                          <HTML></HTML>
+                        </Default>
+                      </Switch>
+                      <HTML><![CDATA[" border="0"/>]]></HTML>
+                    </Default>
+                  </Switch>
+                </Default>
+              </Switch>
+              <HTML><![CDATA[<img src="]]></HTML>
+              <FieldFilterImageURL/>
+              <HTML><![CDATA[" border="0" alt=""/>]]></HTML>
+            </Default>
+          </Switch>
+          <Switch>
+            <Expr>
+              <GetVar Name="MasterVersion" />
+            </Expr>
+            <Case Value="4">
+              <HTML></HTML>
+            </Case>
+            <Default>
+              <HTML><![CDATA[</td></tr></table>]]></HTML>
+            </Default>
+          </Switch>
+        </Case>
+      </Switch>
+    </RenderPattern>
+    <RenderPattern Name="DisplayPattern">
+      <FieldSwitch>
+        <Expr>
+          <Property Select="FieldRef"/>
+        </Expr>
+        <Case Value="">
+          <Switch>
+            <Expr>
+              <Column/>
+            </Expr>
+            <Case Value="">
+              <FieldSwitch>
+                <Expr>
+                  <Property Select="SuppressNameDisplay"/>
+                </Expr>
+                <Case Value="TRUE">
+                  <HTML><![CDATA[<table cellpadding="0" cellspacing="0" dir="]]></HTML>
+                  <Property Select="Direction" HTMLEncode="TRUE"/>
+                  <HTML><![CDATA["><tr><td style="padding-right: 3px;">]]></HTML>
+                  <HTML><![CDATA[ <img border="0" valign="middle" height="12" width="12" src="/_layouts/images/blank.gif" > </td></tr></table>]]></HTML>
+                </Case>
+              </FieldSwitch>
+            </Case>
+            <Default>
+              <FieldSwitch>
+                <Expr>
+                  <Property Select="LookupType"/>
+                </Expr>
+                <Case Value="Computed">
+                  <LookupColumn/>
+                </Case>
+                <Default>
+                  <LookupColumn HTMLEncode="TRUE"/>
+                </Default>
+              </FieldSwitch>
+            </Default>
+          </Switch>
+        </Case>
+        <Default>
+          <LookupColumn  HTMLEncode="TRUE"/>
+        </Default>
+      </FieldSwitch>
+    </RenderPattern>
+    <RenderPattern Name="EditPattern">
+      <HTML><![CDATA[<script type="text/javascript">fld = new Field(frm,]]></HTML>
+      <ScriptQuote>
+        <Property Select="Name"/>
+      </ScriptQuote>
+      <HTML>,</HTML>
+      <ScriptQuote>
+        <Property Select="DisplayName"/>
+      </ScriptQuote>
+      <HTML><![CDATA[);</script>]]></HTML>
+      <HTML><![CDATA[<select TABINDEX=1 NAME="]]></HTML>
+      <FieldPrefix/>
+      <Property Select="Name"/>
+      <HTML><![CDATA[">]]></HTML>
+      <Switch>
+        <Expr>
+          <Property Select="Required"/>
+        </Expr>
+        <Case Value="TRUE">
+        </Case>
+        <Default>
+          <HTML><![CDATA[<option Value="">]]></HTML>
+          <HTML>$Resources:core,onetfldtypes03;</HTML>
+          <HTML><![CDATA[</option>]]></HTML>
+        </Default>
+      </Switch>
+      <SelectOptions  Len="100" MoreText="..."/>
+      <HTML><![CDATA[</select>]]></HTML>
+    </RenderPattern>
+    <RenderPattern Name="NewPattern" DisplayName="NewPattern">
+      <HTML><![CDATA[<script type="text/javascript">fld = new Field(frm,]]></HTML>
+      <ScriptQuote>
+        <Property Select="Name"/>
+      </ScriptQuote>
+      <HTML>,</HTML>
+      <ScriptQuote>
+        <Property Select="DisplayName"/>
+      </ScriptQuote>
+      <HTML><![CDATA[);</script>]]></HTML>
+      <HTML><![CDATA[<select TABINDEX=1 NAME="]]></HTML>
+      <FieldPrefix/>
+      <Property Select="Name"/>
+      <HTML><![CDATA[" TITLE="]]></HTML>
+      <Property Select="Name"/>
+      <HTML><![CDATA[">]]></HTML>
+      <Switch>
+        <Expr>
+          <Property Select="Required"/>
+        </Expr>
+        <Case Value="TRUE">
+        </Case>
+        <Default>
+          <HTML><![CDATA[<option Value="">]]></HTML>
+          <HTML>$Resources:core,onetfldtypes03;</HTML>
+          <HTML><![CDATA[</option>]]></HTML>
+        </Default>
+      </Switch>
+      <SelectOptions Len="100" MoreText="..."/>
+      <HTML><![CDATA[</select>]]></HTML>
+    </RenderPattern>
+    <RenderPattern Name="PreviewDisplayPattern">
+      <HTML><![CDATA[["]]></HTML>
+      <Property Select="DisplayName" HTMLEncode="TRUE"/>
+      <HTML>"$Resources:core,fldtypes011;</HTML>
+    </RenderPattern>
+    <RenderPattern Name="PreviewEditPattern">
+      <Switch>
+        <Expr>
+          <Property Select="Format"/>
+        </Expr>
+        <Case Value="RadioButtons">
+          <HTML><![CDATA[<table cellpadding="0" cellspacing="1">]]></HTML>
+          <SetVar Name="_ChoiceDefault">
+            <Property Select="Default"/>
+          </SetVar>
+          <ForEach Select="CHOICES/CHOICE">
+            <HTML><![CDATA[<tr><td vAlign="top"> <input type="radio"]]></HTML>
+            <IfEqual>
+              <Expr1>
+                <Property Select="."/>
+              </Expr1>
+              <Expr2>
+                <GetVar Name="_ChoiceDefault"/>
+              </Expr2>
+              <Then>
+                <HTML><![CDATA[ checked]]></HTML>
+              </Then>
+            </IfEqual>
+            <HTML><![CDATA[></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+            <Property Select="." HTMLEncode="TRUE"/>
+            <HTML><![CDATA[</td></tr>]]></HTML>
+          </ForEach>
+          <Switch>
+            <Expr>
+              <Property Select="FillInChoice"/>
+            </Expr>
+            <Case Value="TRUE">
+              <HTML><![CDATA[<tr><td vAlign="top"> <input type="radio"></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+              <HTML>$Resources:core,fldtypes018;</HTML>
+              <HTML><![CDATA[</td></tr><tr><td vAlign="top"></td><td class="ms-RadioText" vAlign="top"> <input class="ms-input" value=""></td></tr>]]></HTML>
+            </Case>
+          </Switch>
+          <HTML><![CDATA[</table>]]></HTML>
+        </Case>
+        <Default>
+          <Switch>
+            <Expr>
+              <Property Select="FillInChoice"/>
+            </Expr>
+            <Case Value="TRUE">
+              <HTML><![CDATA[<table><tr><td vAlign="top"> <input type="radio"></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+              <HTML><![CDATA[<select><option selected>"]]></HTML>
+              <Property Select="DisplayName" HTMLEncode="TRUE"/>
+              <HTML>"$Resources:core,fldtypes012;</HTML>
+              <HTML><![CDATA[</option></select>]]></HTML>
+              <HTML><![CDATA[</td></tr>]]></HTML>
+              <HTML><![CDATA[<tr><td vAlign="top"> <input type="radio"></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+              <HTML>$Resources:core,fldtypes018;</HTML>
+              <HTML><![CDATA[</td></tr><tr><td vAlign="top"></td><td class="ms-RadioText" vAlign="top"> <input class="ms-input" value=""></td></tr></table>]]></HTML>
+            </Case>
+            <Default>
+              <HTML><![CDATA[<select><option selected>"]]></HTML>
+              <Property Select="DisplayName" HTMLEncode="TRUE"/>
+              <HTML>"$Resources:core,fldtypes012;</HTML>
+              <HTML><![CDATA[</option></select>]]></HTML>
+            </Default>
+          </Switch>
+        </Default>
+      </Switch>
+    </RenderPattern>
+    <RenderPattern Name="PreviewNewPattern">
+      <Switch>
+        <Expr>
+          <Property Select="Format"/>
+        </Expr>
+        <Case Value="RadioButtons">
+          <HTML><![CDATA[<table cellpadding="0" cellspacing="1">]]></HTML>
+          <SetVar Name="_ChoiceDefault">
+            <Property Select="Default"/>
+          </SetVar>
+          <ForEach Select="CHOICES/CHOICE">
+            <HTML><![CDATA[<tr><td vAlign="top"> <input type="radio"]]></HTML>
+            <IfEqual>
+              <Expr1>
+                <Property Select="."/>
+              </Expr1>
+              <Expr2>
+                <GetVar Name="_ChoiceDefault"/>
+              </Expr2>
+              <Then>
+                <HTML><![CDATA[ checked]]></HTML>
+              </Then>
+            </IfEqual>
+            <HTML><![CDATA[></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+            <Property Select="." HTMLEncode="TRUE"/>
+            <HTML><![CDATA[</td></tr>]]></HTML>
+          </ForEach>
+          <Switch>
+            <Expr>
+              <Property Select="FillInChoice"/>
+            </Expr>
+            <Case Value="TRUE">
+              <HTML><![CDATA[<tr><td vAlign="top"> <input type="radio"></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+              <HTML>$Resources:core,fldtypes018;</HTML>
+              <HTML><![CDATA[</td></tr><tr><td vAlign="top"></td><td class="ms-RadioText" vAlign="top"> <input class="ms-input" value=""></td></tr>]]></HTML>
+            </Case>
+          </Switch>
+          <HTML><![CDATA[</table>]]></HTML>
+        </Case>
+        <Default>
+          <Switch>
+            <Expr>
+              <Property Select="FillInChoice"/>
+            </Expr>
+            <Case Value="TRUE">
+              <HTML><![CDATA[<table><tr><td vAlign="top"> <input type="radio"></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+              <HTML><![CDATA[<select><option selected>"]]></HTML>
+              <Property Select="DisplayName" HTMLEncode="TRUE"/>
+              <HTML>"$Resources:core,fldtypes012;</HTML>
+              <HTML><![CDATA[</option></select>]]></HTML>
+              <HTML><![CDATA[</td></tr>]]></HTML>
+              <HTML><![CDATA[<tr><td vAlign="top"> <input type="radio"></td><td class="ms-RadioText" vAlign="top">]]></HTML>
+              <HTML>$Resources:core,fldtypes018;</HTML>
+              <HTML><![CDATA[</td></tr><tr><td vAlign="top"></td><td class="ms-RadioText" vAlign="top"> <input class="ms-input" value=""></td></tr></table>]]></HTML>
+            </Case>
+            <Default>
+              <HTML><![CDATA[<select><option selected>"]]></HTML>
+              <Property Select="DisplayName" HTMLEncode="TRUE"/>
+              <HTML>"$Resources:core,fldtypes012;</HTML>
+              <HTML><![CDATA[</option></select>]]></HTML>
+            </Default>
+          </Switch>
+        </Default>
+      </Switch>
+    </RenderPattern>
+    <PropertySchema>
+    </PropertySchema>
+  </FieldType>
+</FieldTypes>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="ac5a5765-3738-4390-a64d-9147b449c2ae" solutionId="ac5a5765-3738-4390-a64d-9147b449c2ae" resetWebServer="false" name="FPS.Core" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="DocumentFormat.OpenXml.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\..\Library\Microsoft\DocumentFormat.OpenXml.dll" />
+  </assemblies>
+  <projectItems>
+    <projectItemReference itemId="293c61e7-57cd-4662-b31f-8b6559b2e520" />
+    <projectItemReference itemId="dc1750f6-dae1-4e1d-8b88-aa7701b53693" />
+  </projectItems>
+</package>

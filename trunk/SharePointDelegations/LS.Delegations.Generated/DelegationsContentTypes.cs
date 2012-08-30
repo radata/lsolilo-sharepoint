@@ -39,10 +39,14 @@ namespace LS.Delegations.Generated
                 public FieldInformation DelegationNote { get { return DelegationsFields.DelegationNote; } }
 
                 public FieldInformation DelegationStatus { get { return DelegationsFields.DelegationStatus; } }
+
+                public FieldInformation Title = new FieldInformation(SPBuiltInFieldId.Title, "Title", string.Empty);
             }
 
             public class MonthlyReportFields
             {
+                public FieldInformation Title = new FieldInformation(SPBuiltInFieldId.Title, "Title", string.Empty);
+
                 public FieldInformation MonthIndicator { get { return DelegationsFields.MonthIndicator; } }
 
                 public FieldInformation MonthlyCost { get { return DelegationsFields.MonthlyCost; } }
