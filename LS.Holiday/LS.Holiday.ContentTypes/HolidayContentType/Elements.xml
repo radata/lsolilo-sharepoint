@@ -13,7 +13,16 @@
       <FieldRef ID="{621F6446-3D87-4D93-A6C3-AEE110947796}" Name="EndDate" Required="TRUE"/>
       <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="Description"/>
       <FieldRef ID="{8D6ECDAA-E93E-4079-AD3E-ADAD7FAA25E9}" Name="ProjectLeader" Required="TRUE"/>
-      <FieldRef ID="{0D852C4D-AD57-4008-A4E4-1A6568E0FA15}" Name="Status" Required="TRUE"/>
+      <FieldRef ID="{0D852C4D-AD57-4008-A4E4-1A6568E0FA15}" Name="Status" Required="TRUE" ShowInDisplayForm="TRUE" ShowInNewForm="FALSE" ShowInEditForm="FALSE"/>
     </FieldRefs>
+    <XmlDocuments>
+      <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+        <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+          <Display>FPSListForm</Display>
+          <Edit>FPSListForm</Edit>
+          <New>FPSListForm</New>
+        </FormTemplates>
+      </XmlDocument>
+    </XmlDocuments>
   </ContentType>
 </Elements>
