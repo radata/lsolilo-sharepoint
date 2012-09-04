@@ -1,19 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections;
-using System.Drawing;
-using System.Linq;
-using System.Workflow.ComponentModel.Compiler;
-using System.Workflow.ComponentModel.Serialization;
-using System.Workflow.ComponentModel;
-using System.Workflow.ComponentModel.Design;
-using System.Workflow.Runtime;
 using System.Workflow.Activities;
-using System.Workflow.Activities.Rules;
+using FPS.Evaluation.Core;
+using LS.Holiday.Core;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Workflow;
-using Microsoft.SharePoint.WorkflowActions;
 
 namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
 {
@@ -38,38 +28,34 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
         private void createTaskWithPMTaskContentType_MethodInvoking(object sender, EventArgs e)
         {
             taskId = Guid.NewGuid();
-            contentTypeId = "0x0108010026E5350277764EBB9850F108E812F91A";
-            var title = workflowProperties.Item["Title"];
-            var author = workflowProperties.Item["Author"];
-            SPFieldUserValue employee = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item["Author"].ToString());
-            var start = workflowProperties.Item["StartDate"];
-            var end = workflowProperties.Item["EndDate"];
-            SPFieldUserValue manager = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item["ProjectLeader"].ToString());
+            contentTypeId = HolidayContentTypes.ProjectLeaderTask.Id;
+            var author = workflowProperties.Item[SPBuiltInFieldNames.CreatedBy];
+            SPFieldUserValue employee = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item[SPBuiltInFieldNames.CreatedBy].ToString());
+            var start = workflowProperties.Item[HolidaysFields.StartDate.Name];
+            var end = workflowProperties.Item[HolidaysFields.EndDate.Name];
+            SPFieldUserValue manager = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item[HolidaysFields.ProjectLeader.Name].ToString());
             taskProperties.AssignedTo = manager.User.LoginName;
             taskProperties.Title = string.Format("{0} ({1:d} - {2:d})", employee.User.Name, start, end);
         }
 
         private void taskChangedWhileActivity_Condition(object sender, ConditionalEventArgs e)
         {
-            var decisionId = workflowProperties.TaskList.Fields["Decision"].Id;
-            var changed = taskAfterProperties.ExtendedProperties[decisionId];
+            var changed = taskAfterProperties.ExtendedProperties[HolidaysFields.Decision.Guid];
             e.Result = changed == null;
         }
 
         private void processStatusChangeCodeActivity_ExecuteCode(object sender, EventArgs e)
         {
-            var decisionId = workflowProperties.TaskList.Fields["Decision"].Id;
-            bool approved = taskAfterProperties.ExtendedProperties[decisionId].ToString() == "Approve";
+            bool approved = taskAfterProperties.ExtendedProperties[HolidaysFields.Decision.Guid].ToString() == HolidayDecision.Approve.ToString();
+
             if (approved)
             {
-                var status = workflowProperties.Item["Status"];
-                workflowProperties.Item["Status"] = "Approved";
+                workflowProperties.Item[HolidaysFields.Status.Name] = HolidayStatus.Approved.ToString();
                 workflowProperties.Item.Update();
             }
             else
             {
-                var status = workflowProperties.Item["Status"];
-                workflowProperties.Item["Status"] = "Declined";
+                workflowProperties.Item[HolidaysFields.Status.Name] = HolidayStatus.Declined.ToString();
                 workflowProperties.Item.Update();
             }
         }
