@@ -74,6 +74,16 @@
     </Content>
     <Content Include="HolidayListEventReceiver\Elements.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FPS.Core\FPS.Core.csproj">
+      <Project>{2D4159CA-FCE5-4EFF-884C-64D1275937C1}</Project>
+      <Name>FPS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LS.Holiday.Core\LS.Holiday.Core.csproj">
+      <Project>{8E02E6F5-AB92-41BD-B778-5C85303BA832}</Project>
+      <Name>LS.Holiday.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
 </Project>
