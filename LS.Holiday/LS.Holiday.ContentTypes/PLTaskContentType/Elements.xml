@@ -10,7 +10,7 @@
     <FieldRefs>
       <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"/>
       <FieldRef ID="{29439BF4-F1CA-4277-B6F0-A1947F591213}" Name="Decision" Required="TRUE" ShowInEditForm="TRUE" ShowInDisplayForm="TRUE" ShowInNewForm="TRUE"/>
-      <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="Description" ShowInEditForm="TRUE" ShowInDisplayForm="TRUE" ShowInNewForm="TRUE"/>
+      <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="HolidayDescription" ShowInEditForm="TRUE" ShowInDisplayForm="TRUE" ShowInNewForm="TRUE"/>
     </FieldRefs>
     <XmlDocuments>
       <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">

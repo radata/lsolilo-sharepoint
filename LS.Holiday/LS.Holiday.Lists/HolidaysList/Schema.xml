@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <List xmlns:ows="Microsoft SharePoint" Title="LS - HolidaysList" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/LS.Holiday.Lists-HolidaysList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
   <MetaData>
+    <Validation Message="Specified dates are invalid.">
+      = EndDate > StartDate
+    </Validation>
     <ContentTypes>
       <ContentTypeRef ID="0x0100119F2245F9444258B7A642E6560B9EE3"/>
     </ContentTypes>
@@ -48,6 +51,8 @@
           </FieldRef>
           <FieldRef Name="LinkTitle">
           </FieldRef>
+          <FieldRef Name="StartDate"/>
+          <FieldRef Name="EndDate"/>
         </ViewFields>
         <Query>
           <OrderBy>
@@ -59,6 +64,45 @@
           <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
           <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
         </ParameterBindings>
+      </View>
+      <View BaseViewID="2" Type="Calendar" WebPartZoneID="Main" DisplayName="Calendar" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="Calendar.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="StartDate"/>
+          <FieldRef Name="EndDate"/>
+          <FieldRef Name="Title"/>
+        </ViewFields>
+        <ViewData>
+          <FieldRef Name="Title" Type="CalendarMonthTitle" />
+          <FieldRef Name="Title" Type="CalendarWeekTitle" />
+          <FieldRef Name="" Type="CalendarWeekLocation" />
+          <FieldRef Name="Title" Type="CalendarDayTitle" />
+          <FieldRef Name="" Type="CalendarDayLocation" />
+        </ViewData>
+        <Query>
+          <Where>
+            <And>
+              <DateRangesOverlap>
+                <FieldRef Name="StartDate"/>
+                <FieldRef Name="EndDate"/>
+                <Value Type="DateTime">
+                  <Month/>
+                </Value>
+              </DateRangesOverlap>
+              <Eq>
+                <FieldRef Name="Status"></FieldRef>
+                <Value Type="Text">Approved</Value>
+              </Eq>
+            </And>
+          </Where>
+        </Query>
+        <CalendarViewStyles>
+          <CalendarViewStyle  Title='Day' Type='day' Template='CalendarViewdayChrome' Sequence='1' Default='FALSE'/>
+          <CalendarViewStyle  Title='Week' Type='week' Template='CalendarViewweekChrome' Sequence='2' Default='FALSE'/>
+          <CalendarViewStyle  Title='Month' Type='month' Template='CalendarViewmonthChrome' Sequence='3' Default='TRUE'/>
+        </CalendarViewStyles>
       </View>
     </Views>
     <Forms>
