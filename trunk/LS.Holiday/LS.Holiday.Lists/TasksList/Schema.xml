@@ -37,25 +37,24 @@
         </MAPPINGS>
         <Default>$Resources:core,Tasks_NotStarted;</Default>
       </Field>
-      <Field ID="{d2311440-1ed6-46ea-b46d-daa643dc3886}" Type="Number" Name="PercentComplete" Percentage="TRUE" Min="0" Max="1" DisplayName="$Resources:core,Percent_Complete;" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="PercentComplete">
+      <Field ID="{d2311440-1ed6-46ea-b46d-daa643dc3886}" Type="Number" Name="PercentComplete" Hidden="TRUE" Percentage="TRUE" Min="0" Max="1" DisplayName="$Resources:core,Percent_Complete;" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="PercentComplete">
       </Field>
       <Field ID="{53101f38-dd2e-458c-b245-0c236cc13d1a}" Type="User" List="UserInfo" Name="AssignedTo" DisplayName="$Resources:core,Assigned_To;" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="AssignedTo">
       </Field>
-      <Field ID="{50d8f08c-8e99-4948-97bf-2be41fa34a0d}" Type="User" List="UserInfo" Name="TaskGroup" DisplaceOnUpgrade="TRUE" DisplayName="$Resources:core,Task_Group;" ReadOnlyEnforced="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="TaskGroup">
+      <Field ID="{50d8f08c-8e99-4948-97bf-2be41fa34a0d}" Type="User" List="UserInfo" Name="TaskGroup" Hidden="TRUE" DisplaceOnUpgrade="TRUE" DisplayName="$Resources:core,Task_Group;" ReadOnlyEnforced="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="TaskGroup">
       </Field>
-      <Field ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Type="Note" RichText="TRUE" Name="Body" DisplayName="$Resources:core,Description;" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Body">
+      <Field ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Type="Note" RichText="TRUE" Name="Body" Hidden="TRUE" DisplayName="$Resources:core,Description;" Sortable="FALSE" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Body">
       </Field>
-      <Field ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Type="DateTime" Name="StartDate" DisplayName="$Resources:core,Start_Date;" Format="DateOnly" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="StartDate">
+      <Field ID="{64cd368d-2f95-4bfc-a1f9-8d4324ecb007}" Type="DateTime" Name="StartDate" Hidden="TRUE" DisplayName="$Resources:core,Start_Date;" Format="DateOnly" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="StartDate">
         <Default>[today]</Default>
       </Field>
-      <Field Type="DateTime" ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="DueDate" DisplayName="$Resources:core,Due_Date;" Format="DateOnly" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="DueDate">
+      <Field Type="DateTime" ID="{cd21b4c2-6841-4f9e-a23a-738a65f99889}" Name="DueDate" Hidden="TRUE" DisplayName="$Resources:core,Due_Date;" Format="DateOnly" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="DueDate">
       </Field>
       <Field ID="{29439bf4-f1ca-4277-b6f0-a1947f591213}" Name="Decision" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DecisionColumnName" Type="Choice" Format="RadioButtons">
         <CHOICES>
           <CHOICE>$Resources:LS.Holiday.Core.Resources,ApproveChoiceOption</CHOICE>
           <CHOICE>$Resources:LS.Holiday.Core.Resources,DeclineChoiceOption</CHOICE>
         </CHOICES>
-        <Default>$Resources:LS.Holiday.Core.Resources,ApproveChoiceOption</Default>
       </Field>
       <Field ID="{6b18058b-6afe-4800-8482-4a91a01ec7f4}" Name="Description" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
     </Fields>

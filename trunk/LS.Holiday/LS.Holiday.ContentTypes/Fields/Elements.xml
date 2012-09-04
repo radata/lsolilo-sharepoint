@@ -13,10 +13,9 @@
       <CHOICE>$Resources:LS.Holiday.Core.Resources,ApproveChoiceOption</CHOICE>
       <CHOICE>$Resources:LS.Holiday.Core.Resources,DeclineChoiceOption</CHOICE>
     </CHOICES>
-    <Default>$Resources:LS.Holiday.Core.Resources,ApproveChoiceOption</Default>
   </Field>
   <Field ID="{54980C38-C397-46DF-9E3F-4A4B659D67C0}" Name="StartDate" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,StartDateColumnName" Type="DateTime" Format="DateOnly" />
   <Field ID="{621F6446-3D87-4D93-A6C3-AEE110947796}" Name="EndDate" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,EndDateColumnName" Type="DateTime" Format="DateOnly" />
   <Field ID="{8D6ECDAA-E93E-4079-AD3E-ADAD7FAA25E9}" Name="ProjectLeader" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,ProjectLeaderColumnName" Type="ProjectLeader" UserSelectionMode="0" List="UserInfo"/>
-  <Field ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="Description" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
+  <Field ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="HolidayDescription" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
 </Elements>

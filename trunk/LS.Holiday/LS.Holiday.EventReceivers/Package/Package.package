@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="65b10b8b-f1b1-4ac4-8c06-f8eb41aed024" solutionId="65b10b8b-f1b1-4ac4-8c06-f8eb41aed024" resetWebServer="false" name="LS.Holiday.EventReceivers" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="8a74eb17-672c-46a9-96e1-4ef646de1e17" />
+  </features>
+</package>

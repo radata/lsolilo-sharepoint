@@ -21,8 +21,10 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
     {
         public Guid workflowId = default(System.Guid);
         public SPWorkflowActivationProperties workflowProperties = new SPWorkflowActivationProperties();
-        public Guid createTaskWithPMTaskContentType_TaskId = default(System.Guid);
-        public String createTaskWithPMTaskContentType_ContentTypeId = default(System.String);
+        public Guid taskId = default(System.Guid);
+        public String contentTypeId = default(System.String);
+        public SPWorkflowTaskProperties taskProperties = new Microsoft.SharePoint.Workflow.SPWorkflowTaskProperties();
+        public SPWorkflowTaskProperties taskAfterProperties = new Microsoft.SharePoint.Workflow.SPWorkflowTaskProperties();
 
         public HolidayApprovalWorkflow()
         {
@@ -35,14 +37,41 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
 
         private void createTaskWithPMTaskContentType_MethodInvoking(object sender, EventArgs e)
         {
-            createTaskWithPMTaskContentType_TaskId = Guid.NewGuid();
-            createTaskWithPMTaskContentType_ContentTypeId = "0x0108010026E5350277764EBB9850F108E812F91A";
-
-            createTaskWithPMTaskContentType_TaskProperties.Title = "Example title";
-            //createTask1_TaskProperties1.AssignedTo = "fp\\fps_pm";
-            createTaskWithPMTaskContentType_TaskProperties.ExtendedProperties["HolidayDescription"] = "Some description";
+            taskId = Guid.NewGuid();
+            contentTypeId = "0x0108010026E5350277764EBB9850F108E812F91A";
+            var title = workflowProperties.Item["Title"];
+            var author = workflowProperties.Item["Author"];
+            SPFieldUserValue employee = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item["Author"].ToString());
+            var start = workflowProperties.Item["StartDate"];
+            var end = workflowProperties.Item["EndDate"];
+            SPFieldUserValue manager = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item["ProjectLeader"].ToString());
+            taskProperties.AssignedTo = manager.User.LoginName;
+            taskProperties.Title = string.Format("{0} ({1:d} - {2:d})", employee.User.Name, start, end);
         }
 
-        public SPWorkflowTaskProperties createTaskWithPMTaskContentType_TaskProperties = new Microsoft.SharePoint.Workflow.SPWorkflowTaskProperties();
+        private void taskChangedWhileActivity_Condition(object sender, ConditionalEventArgs e)
+        {
+            var decisionId = workflowProperties.TaskList.Fields["Decision"].Id;
+            var changed = taskAfterProperties.ExtendedProperties[decisionId];
+            e.Result = changed == null;
+        }
+
+        private void processStatusChangeCodeActivity_ExecuteCode(object sender, EventArgs e)
+        {
+            var decisionId = workflowProperties.TaskList.Fields["Decision"].Id;
+            bool approved = taskAfterProperties.ExtendedProperties[decisionId].ToString() == "Approve";
+            if (approved)
+            {
+                var status = workflowProperties.Item["Status"];
+                workflowProperties.Item["Status"] = "Approved";
+                workflowProperties.Item.Update();
+            }
+            else
+            {
+                var status = workflowProperties.Item["Status"];
+                workflowProperties.Item["Status"] = "Declined";
+                workflowProperties.Item.Update();
+            }
+        }
     }
 }
