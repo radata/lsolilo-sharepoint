@@ -18,4 +18,26 @@
   <Field ID="{621F6446-3D87-4D93-A6C3-AEE110947796}" Name="EndDate" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,EndDateColumnName" Type="DateTime" Format="DateOnly" />
   <Field ID="{8D6ECDAA-E93E-4079-AD3E-ADAD7FAA25E9}" Name="ProjectLeader" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,ProjectLeaderColumnName" Type="ProjectLeader" UserSelectionMode="0" List="UserInfo"/>
   <Field ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="HolidayDescription" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
+  <Field ID="{F43DEFEA-0A1B-4B85-8A57-107EC32E87DE}" Name="Holiday" Group="Holidays Columns" DisplayName="Related Holiday" Type="RelationField" Hidden="FALSE" ReadOnly="FALSE">
+    <Customization>
+      <ArrayOfProperty>
+        <Property>
+          <Name>RelatedListName</Name>
+          <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">Holidays</Value>
+        </Property>
+        <Property>
+          <Name>PrimaryKeyColumnName</Name>
+          <Value xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">Workflow Item ID</Value>
+        </Property>
+        <Property>
+          <Name>LookupColumnName</Name>
+          <Value xmlns:q3="http://www.w3.org/2001/XMLSchema" p4:type="q3:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">ID</Value>
+        </Property>
+        <Property>
+          <Name>ViewName</Name>
+          <Value xmlns:q4="http://www.w3.org/2001/XMLSchema" p4:type="q4:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">RelatedView</Value>
+        </Property>
+      </ArrayOfProperty>
+    </Customization>
+  </Field>
 </Elements>

@@ -104,6 +104,22 @@
           <CalendarViewStyle  Title='Month' Type='month' Template='CalendarViewmonthChrome' Sequence='3' Default='TRUE'/>
         </CalendarViewStyles>
       </View>
+      <View BaseViewID="3" Type="HTML" WebPartZoneID="Main" DisplayName="RelatedView" Name="RelatedView"  MobileView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="RelatedView.aspx" >
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitle" DisplayName="Holiday" />
+          <FieldRef Name="Title" />
+          <FieldRef Name="StartDate" />
+          <FieldRef Name="EndDate"/>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="ID" />
+          </OrderBy>
+        </Query>
+      </View>
     </Views>
     <Forms>
       <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />

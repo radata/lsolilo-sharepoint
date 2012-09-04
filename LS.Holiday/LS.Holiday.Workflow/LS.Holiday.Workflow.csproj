@@ -92,7 +92,9 @@
     <Content Include="Features\Workflows\Workflows.Template.xml">
       <DependentUpon>Workflows.feature</DependentUpon>
     </Content>
-    <Content Include="HolidayApprovalWorkflow\Elements.xml" />
+    <Content Include="HolidayApprovalWorkflow\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
