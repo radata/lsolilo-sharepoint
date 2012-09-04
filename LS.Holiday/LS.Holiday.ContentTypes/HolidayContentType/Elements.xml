@@ -9,11 +9,11 @@
                Version="0">
     <FieldRefs>
       <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Hidden="TRUE" ReadOnly="TRUE"/>
-      <FieldRef ID="{54980C38-C397-46DF-9E3F-4A4B659D67C0}" Name="StartDate" Required="TRUE"/>
-      <FieldRef ID="{621F6446-3D87-4D93-A6C3-AEE110947796}" Name="EndDate" Required="TRUE"/>
-      <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="Description"/>
-      <FieldRef ID="{8D6ECDAA-E93E-4079-AD3E-ADAD7FAA25E9}" Name="ProjectLeader" Required="TRUE"/>
-      <FieldRef ID="{0D852C4D-AD57-4008-A4E4-1A6568E0FA15}" Name="Status" Required="TRUE" ShowInDisplayForm="TRUE" ShowInNewForm="FALSE" ShowInEditForm="FALSE"/>
+      <FieldRef ID="{54980C38-C397-46DF-9E3F-4A4B659D67C0}" Name="StartDate" Required="TRUE" ShowInNewForm="TRUE" ShowInDisplayForm="TRUE"/>
+      <FieldRef ID="{621F6446-3D87-4D93-A6C3-AEE110947796}" Name="EndDate" Required="TRUE" ShowInNewForm="TRUE" ShowInDisplayForm="TRUE"/>
+      <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="HolidayDescription"/>
+      <FieldRef ID="{8D6ECDAA-E93E-4079-AD3E-ADAD7FAA25E9}" Name="ProjectLeader" Required="TRUE" ShowInNewForm="TRUE" ShowInDisplayForm="TRUE"/>
+      <FieldRef ID="{0D852C4D-AD57-4008-A4E4-1A6568E0FA15}" Name="Status" Required="TRUE" ShowInDisplayForm="TRUE"/>
     </FieldRefs>
     <XmlDocuments>
       <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">

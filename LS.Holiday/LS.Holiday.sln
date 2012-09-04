@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LS.Holiday.Workflow", "LS.H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FPS.Controls", "FPS.Controls\FPS.Controls.csproj", "{F885EF31-EDBB-45DA-89BB-D8A8FB680CC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LS.Holiday.EventReceivers", "LS.Holiday.EventReceivers\LS.Holiday.EventReceivers.csproj", "{03B6429A-2326-4822-9203-1DC6640959F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,12 @@ Global
 		{F885EF31-EDBB-45DA-89BB-D8A8FB680CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F885EF31-EDBB-45DA-89BB-D8A8FB680CC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F885EF31-EDBB-45DA-89BB-D8A8FB680CC7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{03B6429A-2326-4822-9203-1DC6640959F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B6429A-2326-4822-9203-1DC6640959F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B6429A-2326-4822-9203-1DC6640959F5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{03B6429A-2326-4822-9203-1DC6640959F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B6429A-2326-4822-9203-1DC6640959F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B6429A-2326-4822-9203-1DC6640959F5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
