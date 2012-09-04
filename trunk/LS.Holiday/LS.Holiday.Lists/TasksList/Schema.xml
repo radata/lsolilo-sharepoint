@@ -56,7 +56,7 @@
           <CHOICE>$Resources:LS.Holiday.Core.Resources,DeclineChoiceOption</CHOICE>
         </CHOICES>
       </Field>
-      <Field ID="{6b18058b-6afe-4800-8482-4a91a01ec7f4}" Name="Description" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
+      <Field ID="{6b18058b-6afe-4800-8482-4a91a01ec7f4}" Name="HolidayDescription" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
     </Fields>
     <Views>
       <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
