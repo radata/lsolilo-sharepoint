@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="HolidayListEventReceiver\HolidayListEventReceiver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskListEventReceiver\TaskListEventReceiver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\EventReceivers\EventReceivers.feature">
@@ -67,12 +68,16 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="TaskListEventReceiver\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{32e41d5d-2a7d-4df0-9e18-4f5eff8916d9}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\EventReceivers\EventReceivers.Template.xml">
       <DependentUpon>EventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="HolidayListEventReceiver\Elements.xml" />
+    <Content Include="TaskListEventReceiver\Elements.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FPS.Core\FPS.Core.csproj">

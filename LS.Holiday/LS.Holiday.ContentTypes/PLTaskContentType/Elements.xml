@@ -11,7 +11,7 @@
       <FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}" Name="Title" Required="FALSE" Hidden="TRUE"/>
       <FieldRef ID="{29439BF4-F1CA-4277-B6F0-A1947F591213}" Name="Decision" Required="TRUE" ShowInEditForm="TRUE" ShowInDisplayForm="TRUE" ShowInNewForm="TRUE"/>
       <FieldRef ID="{6B18058B-6AFE-4800-8482-4A91A01EC7F4}" Name="HolidayDescription" ShowInEditForm="TRUE" ShowInDisplayForm="TRUE" ShowInNewForm="TRUE"/>
-      <FieldRef ID="{F43DEFEA-0A1B-4B85-8A57-107EC32E87DE}" Name="Holiday" Required="TRUE" ReadOnly="TRUE" ShowInNewForm="TRUE" ShowInEditForm="TRUE" ShowInDisplayForm="TRUE" />
+      <FieldRef ID="{C63B6452-B247-409E-969E-698B5B356765}" Name="Holiday" Required="TRUE" ReadOnly="TRUE" ShowInNewForm="TRUE" ShowInEditForm="TRUE" ShowInDisplayForm="TRUE" />
       <FieldRef ID="{c042a256-787d-4a6f-8a8a-cf6ab767f12d}" Name="ContentType" />
       <FieldRef ID="{c3a92d97-2b77-4a25-9698-3ab54874bc6f}" Name="Predecessors" />
       <FieldRef ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Name="Priority" />

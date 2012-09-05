@@ -57,7 +57,7 @@
         </CHOICES>
       </Field>
       <Field ID="{6b18058b-6afe-4800-8482-4a91a01ec7f4}" Name="HolidayDescription" Group="Holidays Columns" DisplayName="$Resources:LS.Holiday.Core.Resources,DescriptionColumnName" Type="Note" />
-      <Field ID="{f43defea-0a1b-4b85-8a57-107ec32e87de}" Name="Holiday" Group="Holidays Columns" DisplayName="Related Holiday" Type="RelationField" Hidden="FALSE" ReadOnly="FALSE">
+      <Field ID="{C63B6452-B247-409E-969E-698B5B356765}" Name="Holiday" Group="Holidays Columns" DisplayName="Related Holiday" Type="RelationField" Hidden="FALSE" ReadOnly="FALSE">
         <Customization>
           <ArrayOfProperty>
             <Property>
@@ -152,21 +152,9 @@
         <ViewFields>
           <FieldRef Name="Attachments">
           </FieldRef>
-          <FieldRef Name="DocIcon">
-          </FieldRef>
           <FieldRef Name="LinkTitle">
           </FieldRef>
           <FieldRef Name="AssignedTo">
-          </FieldRef>
-          <FieldRef Name="Status">
-          </FieldRef>
-          <FieldRef Name="Priority">
-          </FieldRef>
-          <FieldRef Name="DueDate">
-          </FieldRef>
-          <FieldRef Name="PercentComplete">
-          </FieldRef>
-          <FieldRef Name="Predecessors">
           </FieldRef>
         </ViewFields>
         <ParameterBindings>
