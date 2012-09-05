@@ -47,10 +47,9 @@
         <XslLink Default="TRUE">main.xsl</XslLink>
         <RowLimit Paged="TRUE">30</RowLimit>
         <ViewFields>
-          <FieldRef Name="Attachments">
-          </FieldRef>
-          <FieldRef Name="LinkTitle">
-          </FieldRef>
+          <FieldRef Name="Attachments"/>
+          <FieldRef Name="LinkTitle"/>
+          <FieldRef Name="Status"/>
           <FieldRef Name="StartDate"/>
           <FieldRef Name="EndDate"/>
         </ViewFields>
@@ -109,8 +108,7 @@
         <XslLink Default="TRUE">main.xsl</XslLink>
         <RowLimit Paged="TRUE">30</RowLimit>
         <ViewFields>
-          <FieldRef Name="LinkTitle" DisplayName="Holiday" />
-          <FieldRef Name="Title" />
+          <FieldRef Name="LinkTitle" DisplayName="Holiday"/>
           <FieldRef Name="StartDate" />
           <FieldRef Name="EndDate"/>
         </ViewFields>
