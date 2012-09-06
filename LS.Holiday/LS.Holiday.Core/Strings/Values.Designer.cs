@@ -61,74 +61,101 @@ namespace LS.Holiday.Core.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Approved Holiday.
+        ///   Looks up a localized string similar to ksiegowosc@future-processing.com.
         /// </summary>
-        public static string AccountancyHolidaySubject {
+        public static string AccountancyMailAddress {
             get {
-                return ResourceManager.GetString("AccountancyHolidaySubject", resourceCulture);
+                return ResourceManager.GetString("AccountancyMailAddress", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ksiegowosc@future-processing.com.
+        ///   Looks up a localized string similar to New request has been approved - {0}..
         /// </summary>
-        public static string AccountancyMail {
+        public static string AccountancyNotificationMailContent {
             get {
-                return ResourceManager.GetString("AccountancyMail", resourceCulture);
+                return ResourceManager.GetString("AccountancyNotificationMailContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holiday Request - Accountancy Notification.
+        /// </summary>
+        public static string AccountancyNotificationMailHeader {
+            get {
+                return ResourceManager.GetString("AccountancyNotificationMailHeader", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to On Vacation: {0}.
         /// </summary>
-        public static string HolidayCalendarTitle {
+        public static string CalendarMailHeader {
             get {
-                return ResourceManager.GetString("HolidayCalendarTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your holiday request has been {0}..
-        /// </summary>
-        public static string HolidayRequestAnswer {
-            get {
-                return ResourceManager.GetString("HolidayRequestAnswer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Holidays Approval Request from {0}.
-        /// </summary>
-        public static string HolidaysApprovalRequest {
-            get {
-                return ResourceManager.GetString("HolidaysApprovalRequest", resourceCulture);
+                return ResourceManager.GetString("CalendarMailHeader", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to europa_centralna@future-processing.com.
         /// </summary>
-        public static string HolidayServiceMail {
+        public static string HolidayServiceMailAddress {
             get {
-                return ResourceManager.GetString("HolidayServiceMail", resourceCulture);
+                return ResourceManager.GetString("HolidayServiceMailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have new holiday approval request: {0}.
+        /// </summary>
+        public static string LeaderApprovalRequestMailContent {
+            get {
+                return ResourceManager.GetString("LeaderApprovalRequestMailContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holiday Request -  from {0}.
+        /// </summary>
+        public static string LeaderApprovalRequestMailHeader {
+            get {
+                return ResourceManager.GetString("LeaderApprovalRequestMailHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your holiday request status: {0}.
+        /// </summary>
+        public static string LeaderResponseMailContent {
+            get {
+                return ResourceManager.GetString("LeaderResponseMailContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Holiday Request - Project Leader Response.
+        /// </summary>
+        public static string LeaderResponseMailHeader {
+            get {
+                return ResourceManager.GetString("LeaderResponseMailHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data available..
+        /// </summary>
+        public static string NoDataAvailable {
+            get {
+                return ResourceManager.GetString("NoDataAvailable", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to urlopy@future-processing.com.
         /// </summary>
-        public static string PublicCalendarAddress {
+        public static string PublicCalendarMailAddress {
             get {
-                return ResourceManager.GetString("PublicCalendarAddress", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your holiday request has been processed..
-        /// </summary>
-        public static string RequestProcessedSubject {
-            get {
-                return ResourceManager.GetString("RequestProcessedSubject", resourceCulture);
+                return ResourceManager.GetString("PublicCalendarMailAddress", resourceCulture);
             }
         }
     }

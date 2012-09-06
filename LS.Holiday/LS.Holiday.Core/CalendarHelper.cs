@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FPS.Core;
 using Microsoft.SharePoint;
+using LS.Holiday.Core.Strings;
 
 namespace LS.Holiday.Core
 {
@@ -31,7 +32,7 @@ namespace LS.Holiday.Core
                 OrganizerMail = organizerAddress,
                 OrganizerName = organizerName,
                 Id = Guid.NewGuid().ToString(),
-                Location = "no information"
+                Location = Values.NoDataAvailable
             };
 
             calendarItem.Attendees.Add(attendentAddress);

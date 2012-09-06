@@ -36,19 +36,21 @@ namespace LS.Holiday.Core
         /// <returns>
         /// The html tagged link.
         /// </returns>
-        public static string GenerateTaskLink(SPWeb web, int taskId)
+        public static string GenerateTaskLink(SPWeb web, int taskId, string title)
         {
-            return string.Format("<br/><a href=\"{0}/Lists/Tasks/EditForm.aspx?id={1}\">Go to request</a>", web.Url, taskId);
+            var result = string.Format("<a href='{0}/Lists/Tasks/EditForm.aspx?ID={1}&IsDlg=1'>{2}</a>", web.Url, taskId, title);
+            return result;
         }
 
         /// <summary>
         /// Generates the holiday link.
         /// </summary>
-        /// <param name="url">The URL.</param>
+        /// <param name="web">The web.</param>
+        /// <param name="itemId">The item id.</param>
         /// <returns></returns>
-        public static string GenerateHolidayLink(string url)
+        public static string GenerateHolidayLink(SPWeb web, int itemId, string title)
         {
-            return string.Format("<br/><a href=\"{0}\">Go to details</a>", url);
+            return string.Format("<a href='{0}/Lists/Holidays/DispForm.aspx?ID={1}&IsDlg=1'>{2}</a>", web.Url, itemId, title);
         }
 
         /// <summary>
