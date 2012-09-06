@@ -8,5 +8,12 @@
       <Class>LS.Holiday.EventReceivers.HolidayListEventReceiver.HolidayListEventReceiver</Class>
       <SequenceNumber>10000</SequenceNumber>
     </Receiver>
+    <Receiver>
+      <Name>HolidayListEventReceiverItemAdding</Name>
+      <Type>ItemAdding</Type>
+      <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+      <Class>LS.Holiday.EventReceivers.HolidayListEventReceiver.HolidayListEventReceiver</Class>
+      <SequenceNumber>10000</SequenceNumber>
+    </Receiver>
   </Receivers>
 </Elements>

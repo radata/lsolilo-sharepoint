@@ -37,7 +37,6 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
             SPFieldUserValue manager = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item[HolidaysFields.ProjectLeader.Name].ToString());
             taskProperties.AssignedTo = manager.User.LoginName;
             taskProperties.Title = string.Format("{0} ({1:d} - {2:d})", employee.User.Name, start, end);
-            SendLeaderNotification();
         }
 
         private void taskChangedWhileActivity_Condition(object sender, ConditionalEventArgs e)
@@ -74,24 +73,13 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
         /// <param name="approved">If set to <c>true</c> send notification about approval, otherwise about rejection.</param>
         private void SendActionNotification(bool approved)
         {
-            string subject = Values.RequestProcessedSubject;
-            string content = string.Format(Values.HolidayRequestAnswer, approved ? HolidayStatus.Approved.ToString() : HolidayStatus.Declined.ToString());
-            string serviceMail = Values.HolidayServiceMail;
+            string subject = Values.LeaderResponseMailHeader;
+            string decisionName = approved ? HolidayStatus.Approved.ToString() : HolidayStatus.Declined.ToString();
+            string itemLink = EmailHelper.GenerateHolidayLink(workflowProperties.Web, workflowProperties.ItemId, decisionName);
+            string content = string.Format(Values.LeaderResponseMailContent, itemLink);
+            string serviceMail = Values.HolidayServiceMailAddress;
             SPFieldUserValue employee = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item[SPBuiltInFieldNames.CreatedBy].ToString());
             EmailHelper.SendEmail(workflowProperties.Web, serviceMail, employee.User.Email, subject, content);
-        }
-
-        /// <summary>
-        /// Sends the leader notification.
-        /// </summary>
-        private void SendLeaderNotification()
-        {
-            SPFieldUserValue employee = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item[SPBuiltInFieldNames.CreatedBy].ToString());
-            string subject = string.Format(Values.HolidaysApprovalRequest, employee.User.Name);
-            string content = EmailHelper.GenerateTaskLink(workflowProperties.Web, taskProperties.TaskItemId);
-            string serviceMail = Values.HolidayServiceMail;
-            SPFieldUserValue manager = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item[HolidaysFields.ProjectLeader.Name].ToString());
-            EmailHelper.SendEmail(workflowProperties.Web, serviceMail, manager.User.Email, subject, content);
         }
 
         /// <summary>
@@ -99,10 +87,12 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
         /// </summary>
         private void SendAccountancyNotification()
         {
-            string subject = Values.AccountancyHolidaySubject;
-            string content = EmailHelper.GenerateHolidayLink(workflowProperties.ItemUrl);
-            string serviceMail = Values.HolidayServiceMail;
-            string accountancyMail = Values.AccountancyMail;
+            string title = workflowProperties.Item[SPBuiltInFieldNames.Title] as string;
+            string subject = Values.AccountancyNotificationMailHeader;
+            string holidayLink = EmailHelper.GenerateHolidayLink(workflowProperties.Web, workflowProperties.ItemId, title);
+            string content = string.Format(Values.AccountancyNotificationMailContent, holidayLink);
+            string serviceMail = Values.HolidayServiceMailAddress;
+            string accountancyMail = Values.AccountancyMailAddress;
             EmailHelper.SendEmail(workflowProperties.Web, serviceMail, accountancyMail, subject, content);
         }
 
@@ -111,12 +101,12 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
         /// </summary>
         private void AddInvitationsToCalendars()
         {
-            string title = string.Format(Values.HolidayCalendarTitle, workflowProperties.Item[SPBuiltInFieldNames.Title]);
+            string title = string.Format(Values.CalendarMailHeader, workflowProperties.Item[SPBuiltInFieldNames.Title]);
             SPFieldUserValue employee = new SPFieldUserValue(workflowProperties.Web, workflowProperties.Item[SPBuiltInFieldNames.CreatedBy].ToString());
             string organizer = employee.User.Name;
             string organizerAddress = employee.User.Email;
             string privateCalendar = employee.User.Email;
-            string publicCalendar = Values.PublicCalendarAddress;
+            string publicCalendar = Values.PublicCalendarMailAddress;
             DateTime? start = workflowProperties.Item[HolidaysFields.StartDate.Name] as DateTime?;
             DateTime? end = workflowProperties.Item[HolidaysFields.EndDate.Name] as DateTime?;
             CalendarHelper.SendCalendarInvitation(workflowProperties.Web, organizer, organizerAddress, publicCalendar, start, end, title);

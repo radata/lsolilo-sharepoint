@@ -117,28 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountancyHolidaySubject" xml:space="preserve">
-    <value>New Approved Holiday</value>
-  </data>
-  <data name="AccountancyMail" xml:space="preserve">
+  <data name="AccountancyMailAddress" xml:space="preserve">
     <value>ksiegowosc@future-processing.com</value>
   </data>
-  <data name="HolidayCalendarTitle" xml:space="preserve">
+  <data name="AccountancyNotificationMailContent" xml:space="preserve">
+    <value>New request has been approved - {0}.</value>
+  </data>
+  <data name="AccountancyNotificationMailHeader" xml:space="preserve">
+    <value>Holiday Request - Accountancy Notification</value>
+  </data>
+  <data name="CalendarMailHeader" xml:space="preserve">
     <value>On Vacation: {0}</value>
   </data>
-  <data name="HolidayRequestAnswer" xml:space="preserve">
-    <value>Your holiday request has been {0}.</value>
-  </data>
-  <data name="HolidaysApprovalRequest" xml:space="preserve">
-    <value>Holidays Approval Request from {0}</value>
-  </data>
-  <data name="HolidayServiceMail" xml:space="preserve">
+  <data name="HolidayServiceMailAddress" xml:space="preserve">
     <value>europa_centralna@future-processing.com</value>
   </data>
-  <data name="PublicCalendarAddress" xml:space="preserve">
-    <value>urlopy@future-processing.com</value>
+  <data name="LeaderApprovalRequestMailContent" xml:space="preserve">
+    <value>You have new holiday approval request: {0}</value>
   </data>
-  <data name="RequestProcessedSubject" xml:space="preserve">
-    <value>Your holiday request has been processed.</value>
+  <data name="LeaderApprovalRequestMailHeader" xml:space="preserve">
+    <value>Holiday Request -  from {0}</value>
+  </data>
+  <data name="LeaderResponseMailContent" xml:space="preserve">
+    <value>Your holiday request status: {0}</value>
+  </data>
+  <data name="LeaderResponseMailHeader" xml:space="preserve">
+    <value>Holiday Request - Project Leader Response</value>
+  </data>
+  <data name="NoDataAvailable" xml:space="preserve">
+    <value>No data available.</value>
+  </data>
+  <data name="PublicCalendarMailAddress" xml:space="preserve">
+    <value>urlopy@future-processing.com</value>
   </data>
 </root>
