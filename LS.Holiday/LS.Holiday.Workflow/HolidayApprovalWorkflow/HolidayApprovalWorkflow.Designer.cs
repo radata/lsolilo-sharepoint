@@ -76,12 +76,12 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
             // processStatusChangeCodeActivity
             // 
             this.processStatusChangeCodeActivity.Name = "processStatusChangeCodeActivity";
-            this.processStatusChangeCodeActivity.ExecuteCode += new System.EventHandler(this.processStatusChangeCodeActivity_ExecuteCode);
+            this.processStatusChangeCodeActivity.ExecuteCode += new System.EventHandler(this.ProcessStatusChangeCodeActivity_ExecuteCode);
             // 
             // taskChangedWhileActivity
             // 
             this.taskChangedWhileActivity.Activities.Add(this.taskChangedSequenceActivity);
-            codecondition1.Condition += new System.EventHandler<System.Workflow.Activities.ConditionalEventArgs>(this.taskChangedWhileActivity_Condition);
+            codecondition1.Condition += new System.EventHandler<System.Workflow.Activities.ConditionalEventArgs>(this.TaskChangedWhileActivity_Condition);
             this.taskChangedWhileActivity.Condition = codecondition1;
             this.taskChangedWhileActivity.Name = "taskChangedWhileActivity";
             // 
@@ -97,7 +97,7 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
             activitybind5.Path = "taskId";
             activitybind6.Name = "HolidayApprovalWorkflow";
             activitybind6.Path = "taskProperties";
-            this.createTaskWithPMTaskContentType.MethodInvoking += new System.EventHandler(this.createTaskWithPMTaskContentType_MethodInvoking);
+            this.createTaskWithPMTaskContentType.MethodInvoking += new System.EventHandler(this.CreateTaskWithPMTaskContentType_MethodInvoking);
             this.createTaskWithPMTaskContentType.SetBinding(Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType.TaskIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind5)));
             this.createTaskWithPMTaskContentType.SetBinding(Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType.ContentTypeIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind4)));
             this.createTaskWithPMTaskContentType.SetBinding(Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType.TaskPropertiesProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind6)));
@@ -113,7 +113,7 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
             this.onHolidayWorkflowActivated.Name = "onHolidayWorkflowActivated";
             activitybind7.Name = "HolidayApprovalWorkflow";
             activitybind7.Path = "workflowProperties";
-            this.onHolidayWorkflowActivated.Invoked += new System.EventHandler<System.Workflow.Activities.ExternalDataEventArgs>(this.onHolidayWorkflowActivated_Invoked);
+            this.onHolidayWorkflowActivated.Invoked += new System.EventHandler<System.Workflow.Activities.ExternalDataEventArgs>(this.OnHolidayWorkflowActivated_Invoked);
             this.onHolidayWorkflowActivated.SetBinding(Microsoft.SharePoint.WorkflowActions.OnWorkflowActivated.WorkflowIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind8)));
             this.onHolidayWorkflowActivated.SetBinding(Microsoft.SharePoint.WorkflowActions.OnWorkflowActivated.WorkflowPropertiesProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind7)));
             // 
@@ -144,22 +144,6 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
         private Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType createTaskWithPMTaskContentType;
 
         private Microsoft.SharePoint.WorkflowActions.OnWorkflowActivated onHolidayWorkflowActivated;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

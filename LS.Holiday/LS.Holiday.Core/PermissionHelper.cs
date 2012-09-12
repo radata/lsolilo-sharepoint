@@ -6,7 +6,7 @@ using Microsoft.SharePoint;
 
 namespace LS.Holiday.Core
 {
-    class PermissionHelper
+    public class PermissionHelper
     {
         #region Public Methods
         /// <summary>
@@ -43,7 +43,7 @@ namespace LS.Holiday.Core
         #region Private Methods
         private static SPPrincipal TryGetUser(string name, SPWeb web)
         {
-            return web.AllUsers.Cast<SPUser>().FirstOrDefault(u => u.Name == name);
+            return web.SiteUsers.Cast<SPUser>().FirstOrDefault(u => u.LoginName == name);
         }
         #endregion
     }

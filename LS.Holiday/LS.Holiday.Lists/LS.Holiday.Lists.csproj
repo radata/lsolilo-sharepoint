@@ -50,6 +50,9 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Lists\Lists.EventReceiver.cs">
+      <DependentUpon>Lists.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,7 +79,16 @@
       <SharePointProjectItemId>{54b41430-78ec-4a67-b362-bf9b538f39ea}</SharePointProjectItemId>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FPS.Core\FPS.Core.csproj">
+      <Project>{2D4159CA-FCE5-4EFF-884C-64D1275937C1}</Project>
+      <Name>FPS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LS.Holiday.Core\LS.Holiday.Core.csproj">
+      <Project>{8E02E6F5-AB92-41BD-B778-5C85303BA832}</Project>
+      <Name>LS.Holiday.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Lists\Lists.Template.xml">
       <DependentUpon>Lists.feature</DependentUpon>

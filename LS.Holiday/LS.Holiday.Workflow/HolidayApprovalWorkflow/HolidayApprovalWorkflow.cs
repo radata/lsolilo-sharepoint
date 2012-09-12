@@ -22,11 +22,11 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
             InitializeComponent();
         }
 
-        private void onHolidayWorkflowActivated_Invoked(object sender, ExternalDataEventArgs e)
+        private void OnHolidayWorkflowActivated_Invoked(object sender, ExternalDataEventArgs e)
         {
         }
 
-        private void createTaskWithPMTaskContentType_MethodInvoking(object sender, EventArgs e)
+        private void CreateTaskWithPMTaskContentType_MethodInvoking(object sender, EventArgs e)
         {
             taskId = Guid.NewGuid();
             contentTypeId = HolidayContentTypes.ProjectLeaderTask.Id;
@@ -39,13 +39,13 @@ namespace LS.Holiday.Workflow.HolidayApprovalWorkflow
             taskProperties.Title = string.Format("{0} ({1:d} - {2:d})", employee.User.Name, start, end);
         }
 
-        private void taskChangedWhileActivity_Condition(object sender, ConditionalEventArgs e)
+        private void TaskChangedWhileActivity_Condition(object sender, ConditionalEventArgs e)
         {
-            var changed = taskAfterProperties.ExtendedProperties[HolidaysFields.Decision.Guid];
-            e.Result = changed == null;
+            var changed = taskAfterProperties.ExtendedProperties[HolidaysFields.Decision.Guid].ToString();
+            e.Result = string.IsNullOrEmpty(changed);
         }
 
-        private void processStatusChangeCodeActivity_ExecuteCode(object sender, EventArgs e)
+        private void ProcessStatusChangeCodeActivity_ExecuteCode(object sender, EventArgs e)
         {
             bool approved = taskAfterProperties.ExtendedProperties[HolidaysFields.Decision.Guid].ToString() == HolidayDecision.Approve.ToString();
 
