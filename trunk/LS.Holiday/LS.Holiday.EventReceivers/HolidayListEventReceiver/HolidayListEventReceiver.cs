@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using FPS.Evaluation.Core;
 using LS.Holiday.Core;
 using Microsoft.SharePoint;
@@ -10,6 +11,10 @@ namespace LS.Holiday.EventReceivers.HolidayListEventReceiver
     /// </summary>
     public class HolidayListEventReceiver : SPItemEventReceiver
     {
+        /// <summary>
+        /// Synchronous Before event that occurs when a new item is added to its containing object.
+        /// </summary>
+        /// <param name="properties"></param>
         public override void ItemAdding(SPItemEventProperties properties)
         {
             base.ItemAdding(properties);
@@ -21,10 +26,14 @@ namespace LS.Holiday.EventReceivers.HolidayListEventReceiver
             DateTime? start = DateTime.Parse(startString);
             DateTime? end = DateTime.Parse(endString);
             string title = string.Format("{0} ({1:d} - {2:d})", author.Name, start, end);
-
+            var list = properties.Web.SiteUsers.Cast<SPUser>().ToList();
             properties.AfterProperties[SPBuiltInFieldNames.Title] = title;
         }
 
+        /// <summary>
+        /// Asynchronous After event that occurs after a new item has been added to its containing object.
+        /// </summary>
+        /// <param name="properties">Properties object.</param>
         public override void ItemAdded(SPItemEventProperties properties)
         {
             base.ItemAdded(properties);

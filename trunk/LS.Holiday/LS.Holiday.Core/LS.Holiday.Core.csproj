@@ -71,6 +71,7 @@
       <DependentUpon>HolidaysFields.tt</DependentUpon>
     </Compile>
     <Compile Include="HolidayStatus.cs" />
+    <Compile Include="PermissionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\LS.Holiday.Core.Resources.Designer.cs">
       <AutoGen>True</AutoGen>
