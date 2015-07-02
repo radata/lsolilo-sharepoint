@@ -1,0 +1,1 @@
+Sample SharePoint projects collection
